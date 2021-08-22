@@ -3,12 +3,12 @@ import { Text, View } from "react-native";
 
 interface IProps {}
 
-const Home = (props: IProps) => {
+const About = (props: IProps) => {
 	return (
 		<View>
-			<Text>Home</Text>
+			<Text>About</Text>
 		</View>
 	);
 };
 
-export default Home;
+export default About;
