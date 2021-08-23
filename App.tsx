@@ -14,6 +14,7 @@ export type RootTabParamList = {
 
 const Tab = createBottomTabNavigator();
 export default function App() {
+	require("dotenv").config();
 	return (
 		<NavigationContainer>
 			<Tab.Navigator>
