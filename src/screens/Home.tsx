@@ -1,15 +1,15 @@
-import React from "react";
-import { FlatList, Text, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import { FlatList, ListRenderItemInfo, Text, View } from "react-native";
 import axios from "axios";
-import { BusinessDto } from "../dto/BusinessDto";
-import { useState } from "react";
-import { useEffect } from "react";
 import { YELP_API_KEY } from "react-native-dotenv";
+import { BusinessSearchDto } from "../types/BusinessSearch";
+import { Business } from "../types/Business";
+import Card from "../components/Card";
 
 interface IProps {}
 
 const Home = (props: IProps) => {
-	const [business, setBusiness] = useState<BusinessDto>();
+	const [business, setBusiness] = useState<BusinessSearchDto>();
 
 	useEffect(() => {
 		axios
@@ -21,14 +21,16 @@ const Home = (props: IProps) => {
 					},
 				}
 			)
-			.then((res: BusinessDto) => setBusiness(res));
+			.then((res: BusinessSearchDto) => setBusiness(res));
 	}, []);
 
 	return (
 		<View>
 			<FlatList
 				data={business?.data.businesses}
-				renderItem={(item) => <Text>{item.item.name}</Text>}
+				renderItem={(business: ListRenderItemInfo<Business>) => (
+					<Card business={business.item} />
+				)}
 			/>
 		</View>
 	);
