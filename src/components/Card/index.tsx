@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { Business } from "../../types/Business";
 import { styles } from "./styles";
 
@@ -12,8 +12,11 @@ const Card = (props: ICardProps) => {
 
 	return (
 		<View style={styles.card}>
-			<Text style={styles.title}>{business.name}</Text>
-			<Text>Rating: {business.rating}/5</Text>
+			<Image style={styles.image} source={{ uri: business.image_url }} />
+			<View style={styles.paddedInnerCard}>
+				<Text style={styles.title}>{business.name}</Text>
+				<Text>Rating: {business.rating}/5</Text>
+			</View>
 		</View>
 	);
 };
