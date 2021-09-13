@@ -14,7 +14,7 @@ const Home = (props: IProps) => {
 	useEffect(() => {
 		axios
 			.get(
-				"https://api.yelp.com/v3/businesses/search?location=43 Connaught Circuit, Kellyville NSW 2155",
+				"https://api.yelp.com/v3/businesses/search?location=Meadowbank, NSW",
 				{
 					headers: {
 						Authorization: `Bearer ${YELP_API_KEY}`,

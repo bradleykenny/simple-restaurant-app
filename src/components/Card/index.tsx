@@ -12,10 +12,16 @@ const Card = (props: ICardProps) => {
 
 	return (
 		<View style={styles.card}>
-			<Image style={styles.image} source={{ uri: business.image_url }} />
+			{business.image_url !== "" && (
+				<Image
+					style={styles.image}
+					source={{ uri: business.image_url }}
+				/>
+			)}
 			<View style={styles.paddedInnerCard}>
 				<Text style={styles.title}>{business.name}</Text>
 				<Text>Rating: {business.rating}/5</Text>
+				<Text>Price: {business.price}</Text>
 			</View>
 		</View>
 	);
