@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FlatList, ListRenderItemInfo, Text, View } from "react-native";
-import axios from "axios";
 import { YELP_API_KEY } from "react-native-dotenv";
-import { BusinessSearchDto } from "../types/BusinessSearch";
-import { Business } from "../types/Business";
-import Card from "../components/Card";
+
+import axios from "axios";
+
+import Card from "../../components/Card";
+import { Business } from "../../types/Business";
+import { BusinessSearchDto } from "../../types/BusinessSearch";
 
 interface IProps {}
 
