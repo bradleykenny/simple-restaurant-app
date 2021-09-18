@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 
 interface IProps {}
 
-const About = (props: IProps) => {
+const AboutScreen = (props: IProps) => {
 	return (
 		<View>
 			<Text>About</Text>
@@ -11,4 +11,4 @@ const About = (props: IProps) => {
 	);
 };
 
-export default About;
+export default AboutScreen;

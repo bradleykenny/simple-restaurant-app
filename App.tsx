@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import HomeTab from "./src/navigation/HomeTab";
-import AboutScreen from "./src/screens/AboutScreen/About";
+import AboutScreen from "./src/screens/AboutScreen";
 
 export type RootTabParamList = {
 	Home: undefined;
