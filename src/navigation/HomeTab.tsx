@@ -1,14 +1,30 @@
 import React from "react";
+import {
+	createStackNavigator,
+	StackNavigationProp,
+} from "@react-navigation/stack";
 import { Text, View } from "react-native";
 import HomeScreen from "../screens/HomeScreen";
+import { Business } from "../types/Business";
+import DetailScreen from "../screens/DetailScreen";
 
 interface IProps {}
 
+export type HomeTabParamList = {
+	HomeScreen: undefined;
+	DetailScreen: { business: Business };
+};
+
+export type HomeTabStackType = StackNavigationProp<HomeTabParamList>;
+
 const HomeTab = (props: IProps) => {
+	const Stack = createStackNavigator<HomeTabParamList>();
+
 	return (
-		<View>
-			<HomeScreen />
-		</View>
+		<Stack.Navigator>
+			<Stack.Screen name="HomeScreen" component={HomeScreen} />
+			<Stack.Screen name="DetailScreen" component={DetailScreen} />
+		</Stack.Navigator>
 	);
 };
 

@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Image, Text, View } from "react-native";
 import { Business } from "../../types/Business";
 import Button from "../Button";
 import TextField from "../TextField";
 import { styles } from "./styles";
+import { HomeTabParamList, HomeTabStackType } from "../../navigation/HomeTab";
+import { StackScreenProps } from "@react-navigation/stack";
 
 interface ICardProps {
 	business: Business;
@@ -11,6 +14,12 @@ interface ICardProps {
 
 const Card = (props: ICardProps) => {
 	const { business } = props;
+
+	const navigation = useNavigation<HomeTabStackType>();
+
+	const handlePress = () => {
+		navigation.navigate("DetailScreen", { business: business });
+	};
 
 	return (
 		<View style={styles.card}>
@@ -25,7 +34,7 @@ const Card = (props: ICardProps) => {
 				<Text>Rating: {business.rating}/5</Text>
 				<Text>Price: {business.price}</Text>
 				<TextField />
-				<Button title="Button" onPress={() => {}} />
+				<Button title="Button" onPress={handlePress} />
 			</View>
 		</View>
 	);
