@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { Business } from "../../types/Business";
+import Button from "../Button";
 import TextField from "../TextField";
 import { styles } from "./styles";
 
@@ -24,6 +25,7 @@ const Card = (props: ICardProps) => {
 				<Text>Rating: {business.rating}/5</Text>
 				<Text>Price: {business.price}</Text>
 				<TextField />
+				<Button title="Button" onPress={() => {}} />
 			</View>
 		</View>
 	);

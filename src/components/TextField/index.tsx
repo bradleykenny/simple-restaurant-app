@@ -1,6 +1,13 @@
 import React, { useRef, useState } from "react";
-import { Animated, StyleProp, TextInput, TextStyle } from "react-native";
-import { styles, rgbBorder } from "./styles";
+import {
+	ActivityIndicator,
+	Animated,
+	StyleProp,
+	TextInput,
+	TextStyle,
+} from "react-native";
+import { styles } from "./styles";
+import { colors } from "../../themes";
 
 interface IProps {
 	multiline?: boolean;
@@ -10,7 +17,6 @@ interface IProps {
 const TextField = (props: IProps) => {
 	const { multiline, style } = props;
 
-	const { textFieldBorderBlurRgb, textFieldBorderFocusRgb } = rgbBorder;
 	const borderColorAnim = useRef(new Animated.Value(0)).current;
 
 	const handleBlur = () => {
@@ -31,7 +37,7 @@ const TextField = (props: IProps) => {
 
 	const borderColorInterpolation = borderColorAnim.interpolate({
 		inputRange: [0, 1],
-		outputRange: [textFieldBorderBlurRgb, textFieldBorderFocusRgb],
+		outputRange: [colors.inactive, colors.primary],
 	});
 
 	return (

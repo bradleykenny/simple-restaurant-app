@@ -20,8 +20,3 @@ export const styles = StyleSheet.create({
 	},
 	multiline: {},
 });
-
-export const rgbBorder = {
-	textFieldBorderBlurRgb: "#cdcdcd",
-	textFieldBorderFocusRgb: "#177dff",
-};
