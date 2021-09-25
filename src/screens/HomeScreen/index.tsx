@@ -36,6 +36,7 @@ const Home = (props: IProps) => {
 					<Card business={business.item} />
 				)}
 				style={{ overflow: "visible" }}
+				scrollIndicatorInsets={styles.scrollInset}
 			/>
 		</View>
 	);

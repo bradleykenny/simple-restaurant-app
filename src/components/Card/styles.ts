@@ -32,4 +32,14 @@ export const styles = StyleSheet.create({
 		width: "100%",
 		height: 100,
 	},
+	textInput: {
+		width: "100%",
+		borderRadius: 5,
+		borderWidth: 1,
+		borderColor: "#cdcdcd",
+		backgroundColor: "#efefef",
+		paddingVertical: 10,
+		paddingHorizontal: 15,
+		marginVertical: 10,
+	},
 });
