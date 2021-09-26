@@ -1,13 +1,7 @@
-import React, { useRef, useState } from "react";
-import {
-	ActivityIndicator,
-	Animated,
-	StyleProp,
-	TextInput,
-	TextStyle,
-} from "react-native";
-import { styles } from "./styles";
+import React, { useRef } from "react";
+import { Animated, StyleProp, TextInput, TextStyle } from "react-native";
 import { colors } from "../../themes";
+import { styles } from "./styles";
 
 interface IProps {
 	multiline?: boolean;

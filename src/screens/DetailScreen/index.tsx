@@ -1,8 +1,7 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { View } from "react-native";
-
 import DetailCard from "../../components/DetailCard";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeTabParamList } from "../../navigation/HomeTab";
 
 type IDetailScreenProps = NativeStackScreenProps<

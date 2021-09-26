@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { Business } from "../../types/Business";
 import { SharedElement } from "react-navigation-shared-element";
+import { Business } from "../../types/Business";
 import { styles } from "./styles";
 
 interface IDetailCardProps {

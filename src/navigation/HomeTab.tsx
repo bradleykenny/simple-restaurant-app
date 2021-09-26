@@ -1,11 +1,11 @@
-import React from "react";
 import {
 	createStackNavigator,
 	StackNavigationProp,
 } from "@react-navigation/stack";
+import React from "react";
+import { DetailScreen } from "../screens/DetailScreen";
 import HomeScreen from "../screens/HomeScreen";
 import { Business } from "../types/Business";
-import { DetailScreen } from "../screens/DetailScreen";
 
 interface IProps {}
 

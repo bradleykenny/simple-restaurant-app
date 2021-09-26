@@ -1,12 +1,12 @@
-import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
 import { Image, Text, View } from "react-native";
+import { SharedElement } from "react-navigation-shared-element";
+import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
 import Button from "../Button";
 import TextField from "../TextField";
 import { styles } from "./styles";
-import { HomeTabStackType } from "../../navigation/HomeTab";
-import { SharedElement } from "react-navigation-shared-element";
 
 interface ICardProps {
 	business: Business;

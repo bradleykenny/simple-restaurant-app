@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { FlatList, ListRenderItemInfo, Text, View } from "react-native";
 import { YELP_API_KEY } from "@env";
-
+import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-
+import React, { useEffect, useState } from "react";
+import { FlatList, ListRenderItemInfo, View } from "react-native";
 import Card from "../../components/Card";
+import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
 import { BusinessSearchDto } from "../../types/BusinessSearch";
-
-import { useNavigation } from "@react-navigation/native";
-import { HomeTabStackType } from "../../navigation/HomeTab";
-
 import { styles } from "./styles";
 
 interface IProps {}
