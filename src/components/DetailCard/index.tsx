@@ -1,18 +1,14 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { HomeTabParamList } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
 import { styles } from "./styles";
 
-type IDetailCardProps = NativeStackScreenProps<
-	HomeTabParamList,
-	"DetailScreen"
->;
+interface IDetailCardProps {
+	business: Business;
+}
 
 const DetailCard = (props: IDetailCardProps) => {
-	const { navigation, route } = props;
-	const { business } = route.params;
+	const { business } = props;
 
 	return (
 		<View style={styles.detailCard}>

@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { FlatList, ListRenderItemInfo, Text, View } from "react-native";
-import { YELP_API_KEY } from "react-native-dotenv";
+import React from "react";
+import { View } from "react-native";
 
-import axios from "axios";
-
-import Card from "../../components/Card";
-import { Business } from "../../types/Business";
-import { BusinessSearchDto } from "../../types/BusinessSearch";
 import DetailCard from "../../components/DetailCard";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { HomeTabParamList } from "../../navigation/HomeTab";
 
-interface IProps {
-	business: Business;
-}
+type IDetailScreenProps = NativeStackScreenProps<
+	HomeTabParamList,
+	"DetailScreen"
+>;
 
-const Home = (props: IProps) => {
-	const { business } = props;
+const Home = (props: IDetailScreenProps) => {
+	const { business } = props.route.params;
 
 	return (
 		<View>

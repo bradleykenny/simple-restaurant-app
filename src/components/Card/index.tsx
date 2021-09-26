@@ -5,8 +5,7 @@ import { Business } from "../../types/Business";
 import Button from "../Button";
 import TextField from "../TextField";
 import { styles } from "./styles";
-import { HomeTabParamList, HomeTabStackType } from "../../navigation/HomeTab";
-import { StackScreenProps } from "@react-navigation/stack";
+import { HomeTabStackType } from "../../navigation/HomeTab";
 
 interface ICardProps {
 	business: Business;

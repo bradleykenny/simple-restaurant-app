@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-	ActivityIndicator,
-	Animated,
-	Button as DefaultButton,
 	NativeSyntheticEvent,
 	NativeTouchEvent,
 	Pressable,
-	StyleProp,
 	Text,
 } from "react-native";
 

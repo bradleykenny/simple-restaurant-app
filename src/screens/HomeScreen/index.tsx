@@ -8,11 +8,15 @@ import Card from "../../components/Card";
 import { Business } from "../../types/Business";
 import { BusinessSearchDto } from "../../types/BusinessSearch";
 
+import { useNavigation } from "@react-navigation/native";
+import { HomeTabStackType } from "../../navigation/HomeTab";
+
 import { styles } from "./styles";
 
 interface IProps {}
 
 const Home = (props: IProps) => {
+	const navigation = useNavigation<HomeTabStackType>();
 	const [business, setBusiness] = useState<BusinessSearchDto>();
 
 	useEffect(() => {
