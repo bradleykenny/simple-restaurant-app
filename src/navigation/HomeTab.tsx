@@ -5,7 +5,7 @@ import {
 } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import { Business } from "../types/Business";
-import DetailScreen from "../screens/DetailScreen";
+import { DetailScreen } from "../screens/DetailScreen";
 
 interface IProps {}
 
@@ -24,8 +24,16 @@ const HomeTab = (props: IProps) => {
 
 	return (
 		<Stack.Navigator>
-			<Stack.Screen name="HomeScreen" component={HomeScreen} />
-			<Stack.Screen name="DetailScreen" component={DetailScreen} />
+			<Stack.Screen
+				name="HomeScreen"
+				component={HomeScreen}
+				options={{ title: "Home" }}
+			/>
+			<Stack.Screen
+				name="DetailScreen"
+				component={DetailScreen}
+				options={{ title: "Details" }}
+			/>
 		</Stack.Navigator>
 	);
 };

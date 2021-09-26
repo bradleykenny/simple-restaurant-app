@@ -1,5 +1,6 @@
 import React from "react";
 import {
+	ActivityIndicator,
 	NativeSyntheticEvent,
 	NativeTouchEvent,
 	Pressable,
@@ -11,20 +12,28 @@ import { styles } from "./styles";
 interface IProps {
 	onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
 	title: string;
+	loading?: boolean;
+	disabled?: boolean;
 }
 
 const Button = (props: IProps) => {
-	const { title, onPress } = props;
+	const { disabled, loading, onPress, title } = props;
 
 	return (
 		<Pressable
 			style={({ pressed }) => [
 				styles.pressable,
 				pressed ? styles.pressed : styles.unpressed,
+				disabled && styles.disabled,
 			]}
 			onPress={onPress}
+			disabled={disabled}
 		>
-			{({ pressed }) => <Text style={styles.text}>{title}</Text>}
+			{loading ? (
+				<ActivityIndicator color="white" />
+			) : (
+				({ pressed }) => <Text style={styles.text}>{title}</Text>
+			)}
 		</Pressable>
 	);
 };

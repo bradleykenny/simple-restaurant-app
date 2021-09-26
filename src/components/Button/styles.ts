@@ -26,4 +26,8 @@ export const styles = StyleSheet.create({
 		textAlign: "center",
 		color: "#fff",
 	},
+	disabled: {
+		backgroundColor: colors.inactive,
+		borderColor: "black",
+	},
 });

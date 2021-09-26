@@ -22,7 +22,7 @@ const Home = (props: IProps) => {
 	useEffect(() => {
 		axios
 			.get(
-				"https://api.yelp.com/v3/businesses/search?location=Meadowbank, NSW",
+				"https://api.yelp.com/v3/businesses/search?location=Dallas, TX",
 				{
 					headers: {
 						Authorization: `Bearer ${YELP_API_KEY}`,

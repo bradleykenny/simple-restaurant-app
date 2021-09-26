@@ -10,7 +10,7 @@ type IDetailScreenProps = NativeStackScreenProps<
 	"DetailScreen"
 >;
 
-const Home = (props: IDetailScreenProps) => {
+export const DetailScreen = (props: IDetailScreenProps) => {
 	const { business } = props.route.params;
 
 	return (
@@ -20,4 +20,14 @@ const Home = (props: IDetailScreenProps) => {
 	);
 };
 
-export default Home;
+DetailScreen.sharedElements = (route: any) => {
+	const { item } = route.params;
+	console.log("hmmm", item);
+	return [
+		{
+			id: `image.${item.id}`,
+			animation: "move",
+			resize: "clip",
+		},
+	];
+};

@@ -26,6 +26,7 @@ export default function App() {
 						tabBarIcon: ({ focused, color, size }) => (
 							<Ionicons name="home" color={color} size={size} />
 						),
+						headerShown: false,
 					}}
 				/>
 				<Tab.Screen
