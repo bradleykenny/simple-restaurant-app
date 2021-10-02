@@ -20,7 +20,15 @@ export type HomeTabStackType = StackNavigationProp<
 const Stack = createSharedElementStackNavigator<HomeTabParamList>();
 const HomeTab = (props: IProps) => {
 	return (
-		<Stack.Navigator>
+		<Stack.Navigator
+			detachInactiveScreens={false}
+			screenOptions={{
+				cardStyleInterpolator: ({ current: { progress } }) => ({
+					cardStyle: { opacity: progress },
+				}),
+				presentation: "modal",
+			}}
+		>
 			<Stack.Screen
 				name="HomeScreen"
 				component={HomeScreen}
@@ -29,6 +37,9 @@ const HomeTab = (props: IProps) => {
 			<Stack.Screen
 				name="DetailScreen"
 				component={DetailScreen}
+				options={{
+					headerShown: false,
+				}}
 				sharedElements={(route, otherRoute, showing) => {
 					const { business } = route.params;
 					console.log(`image.${business.id}`);
@@ -37,6 +48,18 @@ const HomeTab = (props: IProps) => {
 							id: `${business.id}.image`,
 							animation: "move",
 							resize: "clip",
+						},
+						{
+							id: `${business.id}.title`,
+							animation: "fade",
+						},
+						{
+							id: `${business.id}.rating`,
+							animation: "fade",
+						},
+						{
+							id: `${business.id}.price`,
+							animation: "fade",
 						},
 					];
 				}}

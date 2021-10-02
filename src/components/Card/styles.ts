@@ -27,10 +27,10 @@ export const styles = StyleSheet.create({
 		paddingVertical: 20,
 	},
 	image: {
-		borderTopLeftRadius: 5,
-		borderTopRightRadius: 5,
-		width: "100%",
-		height: 100,
+		borderRadius: 5,
+		marginRight: 10,
+		width: 50,
+		height: 50,
 	},
 	textInput: {
 		width: "100%",

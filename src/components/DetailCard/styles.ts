@@ -11,10 +11,8 @@ export const styles = StyleSheet.create({
 		paddingVertical: 20,
 	},
 	image: {
-		borderTopLeftRadius: 5,
-		borderTopRightRadius: 5,
 		width: "100%",
-		height: 100,
+		height: 200,
 	},
 	title: {
 		fontSize: 18,
