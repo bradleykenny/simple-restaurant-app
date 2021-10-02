@@ -1,9 +1,7 @@
-import {
-	createStackNavigator,
-	StackNavigationProp,
-} from "@react-navigation/stack";
+import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { DetailScreen } from "../screens/DetailScreen";
+import { createSharedElementStackNavigator } from "react-navigation-shared-element";
+import DetailScreen from "../screens/DetailScreen";
 import HomeScreen from "../screens/HomeScreen";
 import { Business } from "../types/Business";
 
@@ -19,9 +17,8 @@ export type HomeTabStackType = StackNavigationProp<
 	"HomeScreen"
 >;
 
+const Stack = createSharedElementStackNavigator<HomeTabParamList>();
 const HomeTab = (props: IProps) => {
-	const Stack = createStackNavigator<HomeTabParamList>();
-
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
@@ -32,7 +29,17 @@ const HomeTab = (props: IProps) => {
 			<Stack.Screen
 				name="DetailScreen"
 				component={DetailScreen}
-				options={{ title: "Details" }}
+				sharedElements={(route, otherRoute, showing) => {
+					const { business } = route.params;
+					console.log(`image.${business.id}`);
+					return [
+						{
+							id: `${business.id}.image`,
+							animation: "move",
+							resize: "clip",
+						},
+					];
+				}}
 			/>
 		</Stack.Navigator>
 	);
