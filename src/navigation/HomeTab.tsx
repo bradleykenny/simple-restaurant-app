@@ -42,7 +42,6 @@ const HomeTab = (props: IProps) => {
 				}}
 				sharedElements={(route, otherRoute, showing) => {
 					const { business } = route.params;
-					console.log(`image.${business.id}`);
 					return [
 						{
 							id: `${business.id}.image`,
