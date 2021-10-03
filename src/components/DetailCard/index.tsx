@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { Image, Text, View } from "react-native";
+import React, { useRef } from "react";
+import { Animated, Image, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import { SharedElement } from "react-navigation-shared-element";
 import { HomeTabStackType } from "../../navigation/HomeTab";
@@ -21,20 +21,42 @@ const DetailCard = (props: IDetailCardProps) => {
 		navigation.navigate("HomeScreen");
 	};
 
+	const fadeAnim = useRef(new Animated.Value(1)).current; // Initial value for opacity: 0
+
+	React.useEffect(() => {
+		Animated.timing(fadeAnim, {
+			toValue: 0.8,
+			duration: 1000,
+			useNativeDriver: false,
+		}).start();
+	}, [fadeAnim]);
+
+	const bgColorInterpolation = fadeAnim.interpolate({
+		inputRange: [0.8, 1],
+		outputRange: ["#000", "#fff"],
+	});
+
+	console.log(bgColorInterpolation);
+
 	return (
 		<View style={styles.detailCard}>
 			{business.image_url !== "" && (
 				<SharedElement id={`${business.id}.image`}>
-					<View style={{ backgroundColor: "black" }}>
+					<Animated.View
+						style={{
+							backgroundColor: bgColorInterpolation,
+							opacity: fadeAnim,
+						}}
+					>
 						<Image
 							style={styles.image}
 							source={{ uri: business.image_url }}
 						/>
-					</View>
+					</Animated.View>
 				</SharedElement>
 			)}
 			<Icon
-				name="left"
+				name="close"
 				style={{
 					position: "absolute",
 					marginTop: 60,
