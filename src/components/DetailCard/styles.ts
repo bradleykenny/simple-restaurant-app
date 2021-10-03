@@ -13,6 +13,8 @@ export const styles = StyleSheet.create({
 	image: {
 		width: "100%",
 		height: 200,
+		backgroundColor: "#000",
+		opacity: 0.8,
 	},
 	title: {
 		fontSize: 18,

@@ -40,7 +40,7 @@ const Card = (props: ICardProps) => {
 				<Text>Rating: {business.rating}/5</Text>
 				<Text>Price: {business.price}</Text>
 				<TextField />
-				<Button title="Button" onPress={handlePress} />
+				<Button title="More Info" onPress={handlePress} />
 			</View>
 		</View>
 	);

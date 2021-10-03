@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
 	},
 	paddedInnerCard: {
 		paddingHorizontal: 15,
-		paddingVertical: 20,
+		paddingVertical: 15,
 	},
 	image: {
 		borderRadius: 5,
