@@ -1,11 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import React, { useRef } from "react";
-import { Animated, Image, Text, View } from "react-native";
+import React from "react";
+import { Image, Pressable, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import { SharedElement } from "react-navigation-shared-element";
 import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
+import TextField from "../TextField";
 import { styles } from "./styles";
 
 interface IDetailCardProps {
@@ -21,62 +22,34 @@ const DetailCard = (props: IDetailCardProps) => {
 		navigation.navigate("HomeScreen");
 	};
 
-	const fadeAnim = useRef(new Animated.Value(1)).current; // Initial value for opacity: 0
-
-	React.useEffect(() => {
-		Animated.timing(fadeAnim, {
-			toValue: 0.8,
-			duration: 1000,
-			useNativeDriver: false,
-		}).start();
-	}, [fadeAnim]);
-
-	const bgColorInterpolation = fadeAnim.interpolate({
-		inputRange: [0.8, 1],
-		outputRange: ["#000", "#fff"],
-	});
-
-	console.log(bgColorInterpolation);
-
 	return (
 		<View style={styles.detailCard}>
 			{business.image_url !== "" && (
 				<SharedElement id={`${business.id}.image`}>
-					<Animated.View
-						style={{
-							backgroundColor: bgColorInterpolation,
-							opacity: fadeAnim,
-						}}
-					>
-						<Image
-							style={styles.image}
-							source={{ uri: business.image_url }}
-						/>
-					</Animated.View>
+					<Image
+						style={styles.image}
+						source={{ uri: business.image_url }}
+					/>
 				</SharedElement>
 			)}
-			<Icon
-				name="close"
+			<Pressable
 				style={{
 					position: "absolute",
 					marginTop: 60,
 					marginLeft: 20,
-					shadowColor: "#000000",
-					shadowOffset: {
-						width: 0,
-						height: 0,
-					},
-					shadowOpacity: 0.2,
-					shadowRadius: 5,
+					padding: 8,
+					borderRadius: 60 / 2,
+					backgroundColor: "rgba(0,0,0,0.4)",
 				}}
-				size={20}
-				color="#fff"
 				onPress={handlePress}
-			/>
+			>
+				<Icon name="close" style={{}} size={20} color="#fff" />
+			</Pressable>
 			<View style={styles.paddedInnerCard}>
 				<Text style={styles.title}>{business.name}</Text>
 				<Text>Rating: {business.rating}/5</Text>
 				<Text>Price: {business.price}</Text>
+				<TextField />
 			</View>
 			<StatusBar style="light" />
 		</View>
