@@ -42,4 +42,7 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 15,
 		marginVertical: 10,
 	},
+	infoTextGroup: {
+		marginBottom: 10,
+	},
 });

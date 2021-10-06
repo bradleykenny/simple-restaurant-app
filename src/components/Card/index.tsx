@@ -36,8 +36,10 @@ const Card = (props: ICardProps) => {
 						{business.name}
 					</Text>
 				</View>
-				<Text>Rating: {business.rating}/5</Text>
-				<Text>Price: {business.price}</Text>
+				<View style={styles.infoTextGroup}>
+					<Text>Rating: {business.rating}/5</Text>
+					<Text>Price: {business.price}</Text>
+				</View>
 				<Button title="More Info" onPress={handlePress} />
 			</View>
 		</View>
