@@ -5,10 +5,23 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		marginVertical: 10,
 	},
+	cardHeaderContainer: {
+		flex: 1,
+		flexDirection: "row",
+		flexWrap: "nowrap",
+		justifyContent: "flex-start",
+		marginBottom: 10,
+	},
+	titlesContainer: {
+		marginTop: 4,
+	},
 	title: {
 		fontSize: 18,
 		fontWeight: "bold",
-		marginBottom: 10,
+		marginBottom: 2,
+	},
+	subtitle: {
+		fontSize: 16,
 	},
 	card: {
 		backgroundColor: "#fff",

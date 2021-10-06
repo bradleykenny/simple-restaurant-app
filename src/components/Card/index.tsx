@@ -23,18 +23,21 @@ const Card = (props: ICardProps) => {
 	return (
 		<View style={styles.card}>
 			<View style={styles.paddedInnerCard}>
-				<View>
-					<Text style={styles.title}>
-						{business.image_url !== "" && (
-							<SharedElement id={`${business.id}.image`}>
-								<Image
-									style={styles.image}
-									source={{ uri: business.image_url }}
-								/>
-							</SharedElement>
-						)}
-						{business.name}
-					</Text>
+				<View style={styles.cardHeaderContainer}>
+					{business.image_url !== "" && (
+						<SharedElement id={`${business.id}.image`}>
+							<Image
+								style={styles.image}
+								source={{ uri: business.image_url }}
+							/>
+						</SharedElement>
+					)}
+					<View style={styles.titlesContainer}>
+						<Text style={styles.title}>{business.name}</Text>
+						<Text style={styles.subtitle}>
+							{business.location.city}, {business.location.state}
+						</Text>
+					</View>
 				</View>
 				<View style={styles.infoTextGroup}>
 					<Text>Rating: {business.rating}/5</Text>
