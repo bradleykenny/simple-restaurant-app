@@ -1,10 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		marginVertical: 10,
-	},
 	cardHeaderContainer: {
 		flex: 1,
 		flexDirection: "row",
@@ -22,6 +18,7 @@ export const styles = StyleSheet.create({
 	},
 	subtitle: {
 		fontSize: 16,
+		color: "#787878",
 	},
 	card: {
 		backgroundColor: "#fff",
@@ -57,5 +54,17 @@ export const styles = StyleSheet.create({
 	},
 	infoTextGroup: {
 		marginBottom: 10,
+	},
+	transactions: {
+		padding: 10,
+		borderRadius: 5,
+		backgroundColor: "rgba(0,0,0,0.1)",
+	},
+	transactionTitle: {
+		fontWeight: "bold",
+		marginBottom: 4,
+	},
+	transactionItem: {
+		textTransform: "capitalize",
 	},
 });

@@ -1,15 +1,28 @@
 import React, { useRef } from "react";
-import { Animated, StyleProp, TextInput, TextStyle } from "react-native";
+import {
+	Animated,
+	NativeSyntheticEvent,
+	StyleProp,
+	TextInput,
+	TextInputSubmitEditingEventData,
+	TextStyle,
+} from "react-native";
 import { colors } from "../../themes";
 import { styles } from "./styles";
 
 interface IProps {
+	autoCorrect?: boolean;
 	multiline?: boolean;
+	onSubmitEditing?: (
+		e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
+	) => void;
+	placeholder?: string;
 	style?: StyleProp<TextStyle>;
 }
 
 const TextField = (props: IProps) => {
-	const { multiline, style } = props;
+	const { autoCorrect, multiline, onSubmitEditing, placeholder, style } =
+		props;
 
 	const borderColorAnim = useRef(new Animated.Value(0)).current;
 
@@ -49,7 +62,9 @@ const TextField = (props: IProps) => {
 				multiline={multiline}
 				onBlur={handleBlur}
 				onFocus={handleFocus}
-				placeholder="Enter text"
+				onSubmitEditing={onSubmitEditing}
+				placeholder={placeholder}
+				autoCorrect={autoCorrect !== undefined ? autoCorrect : false}
 			/>
 		</Animated.View>
 	);

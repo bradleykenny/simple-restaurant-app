@@ -1,10 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import { SharedElement } from "react-navigation-shared-element";
 import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
-import Button from "../Button";
 import { styles } from "./styles";
 
 interface ICardProps {
@@ -20,8 +19,28 @@ const Card = (props: ICardProps) => {
 		navigation.navigate("DetailScreen", { business: business });
 	};
 
+	console.log(business.transactions);
+
+	const transactionFields = () => {
+		if (business.transactions.length > 0) {
+			return (
+				<View style={styles.transactions}>
+					<Text style={styles.transactionTitle}>Transactions</Text>
+					{business.transactions.map((transaction) => (
+						<Text style={styles.transactionItem}>
+							{" "}
+							• {transaction}
+						</Text>
+					))}
+				</View>
+			);
+		} else {
+			return null;
+		}
+	};
+
 	return (
-		<View style={styles.card}>
+		<Pressable style={styles.card} onPress={handlePress}>
 			<View style={styles.paddedInnerCard}>
 				<View style={styles.cardHeaderContainer}>
 					{business.image_url !== "" && (
@@ -43,9 +62,10 @@ const Card = (props: ICardProps) => {
 					<Text>Rating: {business.rating}/5</Text>
 					<Text>Price: {business.price}</Text>
 				</View>
-				<Button title="More Info" onPress={handlePress} />
+				{transactionFields()}
+				{/* <Button title="More Info" onPress={handlePress} /> */}
 			</View>
-		</View>
+		</Pressable>
 	);
 };
 
