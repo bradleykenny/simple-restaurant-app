@@ -4,6 +4,7 @@ import { Image, Pressable, Text, View } from "react-native";
 import { SharedElement } from "react-navigation-shared-element";
 import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
+import Button from "../Button";
 import { styles } from "./styles";
 
 interface ICardProps {
@@ -19,14 +20,12 @@ const Card = (props: ICardProps) => {
 		navigation.navigate("DetailScreen", { business: business });
 	};
 
-	console.log(business.transactions);
-
 	const transactionFields = () => {
 		if (business.transactions.length > 0) {
 			return (
 				<View style={styles.transactions}>
 					<Text style={styles.transactionTitle}>Transactions</Text>
-					{business.transactions.map((transaction) => (
+					{business.transactions?.map((transaction) => (
 						<Text style={styles.transactionItem}>
 							{" "}
 							• {transaction}
@@ -63,7 +62,7 @@ const Card = (props: ICardProps) => {
 					<Text>Price: {business.price}</Text>
 				</View>
 				{transactionFields()}
-				{/* <Button title="More Info" onPress={handlePress} /> */}
+				<Button title="More Info" onPress={handlePress} />
 			</View>
 		</Pressable>
 	);

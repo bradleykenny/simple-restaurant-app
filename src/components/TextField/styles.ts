@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 	textInput: {
-		paddingVertical: 10,
+		paddingVertical: 12,
 		paddingHorizontal: 15,
 		width: "100%",
 		backgroundColor: "rgba(0,0,0,0)",

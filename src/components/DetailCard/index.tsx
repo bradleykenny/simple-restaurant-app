@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Pressable, SafeAreaView, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import { SharedElement } from "react-navigation-shared-element";
 import { HomeTabStackType } from "../../navigation/HomeTab";
@@ -32,26 +32,23 @@ const DetailCard = (props: IDetailCardProps) => {
 					/>
 				</SharedElement>
 			)}
-			<Pressable
-				style={{
-					position: "absolute",
-					marginTop: 60,
-					marginLeft: 20,
-					padding: 8,
-					borderRadius: 60 / 2,
-					backgroundColor: "rgba(0,0,0,0.4)",
-				}}
-				onPress={handlePress}
-			>
-				<Icon name="close" style={{}} size={20} color="#fff" />
-			</Pressable>
-			<View style={styles.paddedInnerCard}>
-				<Text style={styles.title}>{business.name}</Text>
-				<Text>Rating: {business.rating}/5</Text>
-				<Text>Price: {business.price}</Text>
-				<TextField />
-			</View>
-			<StatusBar style="light" />
+			<SafeAreaView>
+				<Pressable
+					style={styles.pressable}
+					onPress={handlePress}
+				>
+					<Icon name="close" size={16} color="#fff">
+						<Text style={styles.iconText}> Close </Text>
+					</Icon>
+				</Pressable>
+				<View style={styles.paddedInnerCard}>
+					<Text style={styles.title}>{business.name}</Text>
+					<Text>Rating: {business.rating}/5</Text>
+					<Text>Price: {business.price}</Text>
+					<TextField />
+				</View>
+				<StatusBar style="light" />
+			</SafeAreaView>
 		</View>
 	);
 };

@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
 		flexWrap: "nowrap",
 		justifyContent: "flex-start",
 		marginBottom: 10,
+		overflow: "hidden"
 	},
 	titlesContainer: {
 		marginTop: 4,
@@ -59,6 +60,7 @@ export const styles = StyleSheet.create({
 		padding: 10,
 		borderRadius: 5,
 		backgroundColor: "rgba(0,0,0,0.1)",
+		marginBottom: 15
 	},
 	transactionTitle: {
 		fontWeight: "bold",

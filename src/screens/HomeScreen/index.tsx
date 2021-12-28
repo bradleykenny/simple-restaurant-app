@@ -34,7 +34,9 @@ const Home = (props: IProps) => {
 					},
 				}
 			)
-			.then((res: BusinessSearchDto) => setBusiness(res));
+			.then((res: BusinessSearchDto) => {
+				setBusiness(res)
+			});
 	}, [location]);
 
 	const handleTextFieldSubmit = (
