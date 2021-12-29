@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
 	},
 	detailCard: {},
 	paddedInnerCard: {
+		height: '100%',
 		paddingHorizontal: 15,
 		paddingVertical: 15,
 	},

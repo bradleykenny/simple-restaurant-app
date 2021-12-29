@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { View } from "react-native";
+import { SharedElement } from "react-navigation-shared-element";
 import DetailCard from "../../components/DetailCard";
 import { HomeTabParamList } from "../../navigation/HomeTab";
 
@@ -14,7 +15,9 @@ const DetailScreen = (props: IDetailScreenProps) => {
 
 	return (
 		<View>
-			<DetailCard business={business} />
+			<SharedElement id={`${business.id}.card`}>
+				<DetailCard business={business} />
+			</SharedElement>
 		</View>
 	);
 };

@@ -61,6 +61,11 @@ const HomeTab = (props: IProps) => {
 							id: `${business.id}.price`,
 							animation: "fade",
 						},
+						{
+							id: `${business.id}.card`,
+							animation: "move",
+							resize: "clip"
+						},
 					];
 				}}
 			/>

@@ -9,6 +9,7 @@ import {
 	TextInputSubmitEditingEventData,
 	View,
 } from "react-native";
+import { SharedElement } from "react-navigation-shared-element";
 import Card from "../../components/Card";
 import TextField from "../../components/TextField";
 import { HomeTabStackType } from "../../navigation/HomeTab";
@@ -57,7 +58,9 @@ const Home = (props: IProps) => {
 			<FlatList
 				data={business?.data.businesses}
 				renderItem={(business: ListRenderItemInfo<Business>) => (
-					<Card business={business.item} />
+					<SharedElement id={`${business.item.id}.card`}>
+						<Card business={business.item} />
+					</SharedElement>
 				)}
 				style={styles.flatListContainer}
 				scrollIndicatorInsets={styles.scrollInset}

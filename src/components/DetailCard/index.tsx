@@ -38,32 +38,30 @@ const DetailCard = (props: IDetailCardProps) => {
 					</View>
 				</SharedElement>
 			)}
-			<ScrollView>
-				<SafeAreaView>
-					<Pressable
-						style={styles.pressable}
-						onPress={handlePress}
-					>
-						<Icon name="close" size={16} color="#fff">
-							<Text style={styles.iconText}> Close </Text>
-						</Icon>
-					</Pressable>
-					<View style={styles.paddedInnerCard}>
-						<Text style={styles.title}>
-							{business.name}
-						</Text>
-						<Text>
-							Rating: {business.rating}/5
-						</Text>
-						<Text>
-							Price: {business.price}
-						</Text>
-						<TextField label='First Name' placeholder='John' />
-						<TextField label='Last Name' placeholder='Apple' />
-					</View>
-					<StatusBar style="light" />
-				</SafeAreaView>
-			</ScrollView>
+			<SafeAreaView>
+				<Pressable
+					style={styles.pressable}
+					onPress={handlePress}
+				>
+					<Icon name="close" size={16} color="#fff">
+						<Text style={styles.iconText}> Close </Text>
+					</Icon>
+				</Pressable>
+				<ScrollView style={styles.paddedInnerCard}>
+					<Text style={styles.title}>
+						{business.name}
+					</Text>
+					<Text>
+						Rating: {business.rating}/5
+					</Text>
+					<Text>
+						Price: {business.price}
+					</Text>
+					<TextField label='First Name' placeholder='John' />
+					<TextField label='Last Name' placeholder='Apple' />
+				</ScrollView>
+				<StatusBar style="light" />
+			</SafeAreaView>
 		</View>
 	);
 };
