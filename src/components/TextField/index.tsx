@@ -44,7 +44,7 @@ const TextField = (props: IProps) => {
 
 	const borderColorInterpolation = borderColorAnim.interpolate({
 		inputRange: [0, 1],
-		outputRange: [colors.inactive, colors.primary],
+		outputRange: [colors.inactive, colors.primary[100]],
 	});
 
 	return (

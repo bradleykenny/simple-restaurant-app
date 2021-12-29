@@ -3,14 +3,14 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
-	pressable: {
+	mainView: {
 		width: "100%",
 		paddingVertical: 10,
 		alignContent: "center",
+		backgroundColor: colors.primary[100],
 		borderRadius: 5,
-		borderColor: colors.primary,
+		borderColor: colors.primary[100],
 		borderWidth: 1,
-		backgroundColor: colors.primary,
 	},
 	button: {
 		color: "white",

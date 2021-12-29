@@ -20,9 +20,9 @@ interface IProps {}
 
 const Home = (props: IProps) => {
 	const navigation = useNavigation<HomeTabStackType>();
+	
 	const [business, setBusiness] = useState<BusinessSearchDto>();
-
-	const [location, setLocation] = useState("");
+	const [location, setLocation] = useState("Sydney, NSW");
 
 	useEffect(() => {
 		axios

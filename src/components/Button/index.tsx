@@ -5,19 +5,28 @@ import {
 	NativeSyntheticEvent,
 	NativeTouchEvent,
 	Pressable,
+	StyleProp,
 	Text,
+	ViewStyle,
 } from "react-native";
 import { styles } from "./styles";
 
 interface IProps {
-	onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
-	title: string;
-	loading?: boolean;
 	disabled?: boolean;
+	loading?: boolean;
+	onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+	style?: StyleProp<ViewStyle>;
+	title: string;
 }
 
 const Button = (props: IProps) => {
-	const { disabled, loading, onPress, title } = props;
+	const { 
+		disabled, 
+		loading, 
+		onPress, 
+		style,
+		title
+	} = props;
 
 	const animatedButtonScale = new Animated.Value(1);
 
@@ -42,17 +51,11 @@ const Button = (props: IProps) => {
 	}
 
 	return (
-		<Animated.View style={animatedScaleStyle}>
-			<Pressable
-				style={({ pressed }) => [
-					styles.pressable,
-					disabled && styles.disabled,
-				]}
-				onPress={onPress}
-				onPressIn={onPressIn}
-				onPressOut={onPressOut}
-				disabled={disabled}
-			>
+		<Animated.View style={[animatedScaleStyle, styles.mainView, disabled && styles.disabled, style]}>
+			<Pressable onPress={onPress}
+					   onPressIn={onPressIn}
+					   onPressOut={onPressOut}
+					   disabled={disabled}>
 				{loading ? (
 					<ActivityIndicator color="white" />
 				) : (

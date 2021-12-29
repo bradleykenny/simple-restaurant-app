@@ -1,4 +1,7 @@
 export const colors = {
-	primary: "#177dff",
-	inactive: "#cdcdcd",
+	primary: {
+		100: "#177DFF",
+		200: "#0061de"
+	},
+	inactive: "#CDCDCD",
 };
