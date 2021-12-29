@@ -8,14 +8,16 @@ export const styles = StyleSheet.create({
 	detailCard: {},
 	paddedInnerCard: {
 		paddingHorizontal: 15,
-		paddingVertical: 20,
+		paddingVertical: 15,
 	},
 	image: {
 		width: "100%",
 		height: 200,
+		resizeMode: 'cover',
+		opacity: 0.8
 	},
 	title: {
-		fontSize: 18,
+		fontSize: 24,
 		fontWeight: "bold",
 		marginBottom: 10,
 	},
@@ -30,5 +32,8 @@ export const styles = StyleSheet.create({
 	},
 	iconText: {
 		fontSize: 16
+	},
+	imageBackdrop: {
+		backgroundColor: 'black'
 	}
 });

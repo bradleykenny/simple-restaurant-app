@@ -9,6 +9,8 @@ export const styles = StyleSheet.create({
 		zIndex: 99,
 		marginHorizontal: -15,
 		paddingHorizontal: 15,
+		borderBottomColor: 'rgba(0,0,0,0.1)',
+		borderBottomWidth: 1
 	},
 	scrollInset: {
 		right: -15,

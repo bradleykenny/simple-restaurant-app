@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: "rgba(205,205,205,1)",
 		backgroundColor: "#ffffff",
-		marginVertical: 10,
+		marginVertical: 5,
 	},
 	textInput: {
 		paddingVertical: 12,
@@ -19,4 +19,10 @@ export const styles = StyleSheet.create({
 		borderColor: "blue",
 	},
 	multiline: {},
+	label: {
+		marginTop: 10,
+		marginBottom: 2,
+		marginLeft: 0,
+		fontWeight: "bold"
+	}
 });

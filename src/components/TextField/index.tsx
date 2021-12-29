@@ -3,33 +3,42 @@ import {
 	Animated,
 	NativeSyntheticEvent,
 	StyleProp,
+	Text,
 	TextInput,
 	TextInputSubmitEditingEventData,
 	TextStyle,
+	View
 } from "react-native";
 import { colors } from "../../themes";
 import { styles } from "./styles";
 
 interface IProps {
+	label?: string;
+	placeholder?: string;
+	style?: StyleProp<TextStyle>;
 	autoCorrect?: boolean;
 	multiline?: boolean;
 	onSubmitEditing?: (
 		e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
 	) => void;
-	placeholder?: string;
-	style?: StyleProp<TextStyle>;
 }
 
 const TextField = (props: IProps) => {
-	const { autoCorrect, multiline, onSubmitEditing, placeholder, style } =
-		props;
+	const { 
+		label,
+		placeholder, 
+		style,
+		autoCorrect, 
+		multiline, 
+		onSubmitEditing, 
+	} = props;
 
 	const borderColorAnim = useRef(new Animated.Value(0)).current;
 
 	const handleBlur = () => {
 		Animated.timing(borderColorAnim, {
 			toValue: 0,
-			duration: 300,
+			duration: 150,
 			useNativeDriver: false,
 		}).start();
 	};
@@ -37,7 +46,7 @@ const TextField = (props: IProps) => {
 	const handleFocus = () => {
 		Animated.timing(borderColorAnim, {
 			toValue: 1,
-			duration: 300,
+			duration: 150,
 			useNativeDriver: false,
 		}).start();
 	};
@@ -47,26 +56,39 @@ const TextField = (props: IProps) => {
 		outputRange: [colors.inactive, colors.primary[100]],
 	});
 
+	const renderLabel = () => {
+		if (!label) {
+			return null;
+		}
+		
+		return (
+			<Text style={styles.label}>{label}</Text>
+		);
+	}
+
 	return (
-		<Animated.View
-			style={[
-				styles.mainView,
-				{
-					borderColor: borderColorInterpolation,
-				},
-				style,
-			]}
-		>
-			<TextInput
-				style={styles.textInput}
-				multiline={multiline}
-				onBlur={handleBlur}
-				onFocus={handleFocus}
-				onSubmitEditing={onSubmitEditing}
-				placeholder={placeholder}
-				autoCorrect={autoCorrect !== undefined ? autoCorrect : false}
-			/>
-		</Animated.View>
+		<View>
+			{renderLabel()}
+			<Animated.View
+				style={[
+					styles.mainView,
+					{
+						borderColor: borderColorInterpolation,
+					},
+					style,
+				]}
+			>
+				<TextInput
+					style={styles.textInput}
+					multiline={multiline}
+					onBlur={handleBlur}
+					onFocus={handleFocus}
+					onSubmitEditing={onSubmitEditing}
+					placeholder={placeholder}
+					autoCorrect={autoCorrect !== undefined ? autoCorrect : false}
+				/>
+			</Animated.View>
+		</View>
 	);
 };
 

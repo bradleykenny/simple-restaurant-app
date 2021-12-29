@@ -51,7 +51,9 @@ const Card = (props: ICardProps) => {
 						</SharedElement>
 					)}
 					<View style={styles.titlesContainer}>
-						<Text style={styles.title}>{business.name}</Text>
+						<Text style={styles.title}>
+							{business.name}
+						</Text>
 						<Text style={styles.subtitle}>
 							{business.location.city}, {business.location.state}
 						</Text>

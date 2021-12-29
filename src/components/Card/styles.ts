@@ -15,15 +15,16 @@ export const styles = StyleSheet.create({
 	title: {
 		fontSize: 18,
 		fontWeight: "bold",
-		marginBottom: 2,
+		marginTop: -1,
+		marginBottom: 4
 	},
 	subtitle: {
-		fontSize: 16,
-		color: "#787878",
+		fontSize: 14,
+		color: "#787878"
 	},
 	card: {
 		backgroundColor: "#fff",
-		borderRadius: 5,
+		borderRadius: 8,
 		marginVertical: 10,
 		shadowColor: "#000000",
 		shadowOffset: {

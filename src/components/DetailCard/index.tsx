@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useEffect } from "react";
 import { Image, Pressable, SafeAreaView, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import { SharedElement } from "react-navigation-shared-element";
@@ -22,14 +22,20 @@ const DetailCard = (props: IDetailCardProps) => {
 		navigation.navigate("HomeScreen");
 	};
 
+	useEffect(() => {
+		
+	});
+
 	return (
 		<View style={styles.detailCard}>
 			{business.image_url !== "" && (
 				<SharedElement id={`${business.id}.image`}>
-					<Image
-						style={styles.image}
-						source={{ uri: business.image_url }}
-					/>
+					<View style={styles.imageBackdrop}>
+						<Image
+							style={styles.image}
+							source={{ uri: business.image_url }}
+						/>
+					</View>
 				</SharedElement>
 			)}
 			<SafeAreaView>
@@ -42,10 +48,17 @@ const DetailCard = (props: IDetailCardProps) => {
 					</Icon>
 				</Pressable>
 				<View style={styles.paddedInnerCard}>
-					<Text style={styles.title}>{business.name}</Text>
-					<Text>Rating: {business.rating}/5</Text>
-					<Text>Price: {business.price}</Text>
-					<TextField />
+					<Text style={styles.title}>
+						{business.name}
+					</Text>
+					<Text>
+						Rating: {business.rating}/5
+					</Text>
+					<Text>
+						Price: {business.price}
+					</Text>
+					<TextField label='First Name' placeholder='John' />
+					<TextField label='Last Name' placeholder='Apple' />
 				</View>
 				<StatusBar style="light" />
 			</SafeAreaView>
