@@ -20,9 +20,7 @@ export type HomeTabStackType = StackNavigationProp<
 const Stack = createSharedElementStackNavigator<HomeTabParamList>();
 const HomeTab = (props: IProps) => {
 	return (
-		<Stack.Navigator
-			detachInactiveScreens={false}
-			screenOptions={{
+		<Stack.Navigator screenOptions={{
 				cardStyleInterpolator: ({ current: { progress } }) => ({
 					cardStyle: { opacity: progress },
 				}),
@@ -60,11 +58,6 @@ const HomeTab = (props: IProps) => {
 						{
 							id: `${business.id}.price`,
 							animation: "fade",
-						},
-						{
-							id: `${business.id}.card`,
-							animation: "move",
-							resize: "clip"
 						},
 					];
 				}}

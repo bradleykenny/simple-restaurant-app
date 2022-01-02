@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 	container: {
-		paddingHorizontal: 15,
+		flex: 1,
+		paddingHorizontal: 15
 	},
 	textFieldContainer: {
 		backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -16,6 +17,7 @@ export const styles = StyleSheet.create({
 		right: -15,
 	},
 	flatListContainer: {
+		flex: 1, 
 		overflow: "visible",
 		zIndex: 98,
 	},

@@ -47,7 +47,9 @@ const DetailCard = (props: IDetailCardProps) => {
 						<Text style={styles.iconText}> Close </Text>
 					</Icon>
 				</Pressable>
-				<ScrollView style={styles.paddedInnerCard}>
+				<ScrollView style={styles.paddedInnerCard} 
+							onScroll={(scroll) => console.log(scroll.nativeEvent.contentOffset)}
+							scrollEventThrottle={16}>
 					<Text style={styles.title}>
 						{business.name}
 					</Text>
