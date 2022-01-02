@@ -1,5 +1,6 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
+import { Platform } from "react-native";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 import DetailScreen from "../screens/DetailScreen";
 import HomeScreen from "../screens/HomeScreen";
@@ -26,6 +27,7 @@ const HomeTab = (props: IProps) => {
 				}),
 				presentation: "modal",
 			}}
+			detachInactiveScreens={Platform.OS === 'web'}
 		>
 			<Stack.Screen
 				name="HomeScreen"

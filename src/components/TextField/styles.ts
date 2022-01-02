@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
 		paddingVertical: 12,
 		paddingHorizontal: 15,
 		width: "100%",
-		backgroundColor: "rgba(0,0,0,0)",
+		backgroundColor: "rgba(0,0,0,0)"
 	},
 	inFocus: {
 		borderColor: "blue",
