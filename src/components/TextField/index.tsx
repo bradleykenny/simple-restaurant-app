@@ -1,4 +1,7 @@
-import React, { useRef } from "react";
+import React, { 
+	useRef,
+	useState 
+} from "react";
 import {
 	Animated,
 	NativeSyntheticEvent,
@@ -33,7 +36,10 @@ const TextField = (props: IProps) => {
 		onSubmitEditing, 
 	} = props;
 
+	const [ isFocus, setFocus ] = useState(false);
+
 	const borderColorAnim = useRef(new Animated.Value(0)).current;
+
 
 	const handleBlur = () => {
 		Animated.timing(borderColorAnim, {
@@ -41,6 +47,7 @@ const TextField = (props: IProps) => {
 			duration: 150,
 			useNativeDriver: false,
 		}).start();
+		setFocus(false);
 	};
 
 	const handleFocus = () => {
@@ -49,6 +56,7 @@ const TextField = (props: IProps) => {
 			duration: 150,
 			useNativeDriver: false,
 		}).start();
+		setFocus(true);
 	};
 
 	const borderColorInterpolation = borderColorAnim.interpolate({
@@ -74,12 +82,13 @@ const TextField = (props: IProps) => {
 					styles.mainView,
 					{
 						borderColor: borderColorInterpolation,
+						borderWidth: isFocus ? 2 : 1
 					},
 					style,
 				]}
 			>
 				<TextInput
-					style={styles.textInput}
+					style={[styles.textInput, { paddingVertical: isFocus ? 11 : 12 }]}
 					multiline={multiline}
 					onBlur={handleBlur}
 					onFocus={handleFocus}
