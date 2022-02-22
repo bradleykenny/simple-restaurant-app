@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 	mainView: {
 		width: "100%",
-		borderRadius: 5,
+		borderRadius: 8,
 		borderWidth: 1,
 		borderColor: "rgba(205,205,205,1)",
 		backgroundColor: "#ffffff",
