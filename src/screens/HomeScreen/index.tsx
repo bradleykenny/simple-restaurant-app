@@ -1,6 +1,6 @@
 import { YELP_API_KEY } from "@env";
 import { useNavigation } from "@react-navigation/native";
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import {
 	FlatList,
