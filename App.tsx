@@ -1,17 +1,21 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { 
 	Platform, 
 	StyleSheet 
 } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
 import { 
 	QueryClient, 
 	QueryClientProvider 
 } from "react-query";
+import { initializeApp } from 'firebase/app';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeTab from "./src/navigation/HomeTab";
 import AboutScreen from "./src/screens/AboutScreen";
+
+import { firebaseConfig } from "./firestoreConfig";
+import { getFirestore, setDoc, doc } from 'firebase/firestore';
 
 export type RootTabParamList = {
 	Home: undefined;
@@ -21,6 +25,16 @@ export type RootTabParamList = {
 const Tab = createBottomTabNavigator();
 export default function App() {
 	const queryClient = new QueryClient();
+
+	initializeApp(firebaseConfig);
+
+	console.log('luigi');
+	const firestore = getFirestore();
+	setDoc(doc(firestore, "characters", "luigi"), {
+		employment: "friend",
+		outfitColor: "green",
+		specialAttack: "jump"
+	  });
 
 	return (
 		<QueryClientProvider client={queryClient}>
