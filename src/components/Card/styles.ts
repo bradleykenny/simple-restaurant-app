@@ -3,9 +3,6 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 	cardHeaderContainer: {
 		flex: 1,
-		flexDirection: "row",
-		flexWrap: "nowrap",
-		justifyContent: "flex-start",
 		marginBottom: 10,
 		overflow: "hidden"
 	},
@@ -20,29 +17,21 @@ export const styles = StyleSheet.create({
 	},
 	subtitle: {
 		fontSize: 14,
-		color: "#787878"
+		color: "#787878",
+		marginBottom: 5
 	},
 	card: {
-		backgroundColor: "#fff",
-		borderRadius: 8,
 		marginVertical: 10,
-		shadowColor: "#000000",
-		shadowOffset: {
-			width: 0,
-			height: 0,
-		},
-		shadowOpacity: 0.2,
-		shadowRadius: 5,
-	},
-	paddedInnerCard: {
-		paddingHorizontal: 15,
-		paddingVertical: 15,
+		borderRadius: 12,
+		overflow: 'hidden',
+		backgroundColor: "#fff",
+		borderColor: '#cdcdcd',
+		borderWidth: 1
 	},
 	image: {
-		borderRadius: 5,
 		marginRight: 10,
-		width: 50,
-		height: 50,
+		width: '100%',
+		height: 100
 	},
 	textInput: {
 		width: "100%",
@@ -55,11 +44,11 @@ export const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 	infoTextGroup: {
-		marginBottom: 10,
+		paddingHorizontal: 15
 	},
 	transactions: {
-		padding: 10,
-		borderRadius: 5,
+		padding: 15,
+		borderRadius: 10,
 		backgroundColor: "rgba(0,0,0,0.1)",
 		marginBottom: 15
 	},
@@ -70,4 +59,8 @@ export const styles = StyleSheet.create({
 	transactionItem: {
 		textTransform: "capitalize",
 	},
+	buttonView: {
+		marginHorizontal: 15,
+		marginVertical: 15
+	}
 });

@@ -43,11 +43,11 @@ const DetailCard = (props: IDetailCardProps) => {
 					style={styles.pressable}
 					onPress={handlePress}
 				>
-					<Icon name="close" size={16} color="#fff">
+					<Icon name="close" size={16} color="#000">
 						<Text style={styles.iconText}> Close </Text>
 					</Icon>
 				</Pressable>
-				<ScrollView style={styles.paddedInnerCard} 
+				<ScrollView style={[styles.paddedInnerCard, styles.boxShadow]} 
 							onScroll={(scroll) => console.log(scroll.nativeEvent.contentOffset)}
 							scrollEventThrottle={16}>
 					<Text style={styles.title}>

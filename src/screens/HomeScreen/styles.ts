@@ -6,11 +6,12 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 15
 	},
 	textFieldContainer: {
-		backgroundColor: "rgba(255, 255, 255, 0.5)",
+		backgroundColor: "rgba(255, 255, 255, 1)",
 		zIndex: 99,
 		marginHorizontal: -15,
 		paddingHorizontal: 15,
-		borderBottomColor: 'rgba(0,0,0,0.1)',
+		paddingVertical: 5,
+		borderColor: 'rgba(0,0,0,0.2)',
 		borderBottomWidth: 1
 	},
 	scrollInset: {

@@ -40,30 +40,32 @@ const Card = (props: ICardProps) => {
 
 	return (
 		<Pressable style={styles.card} onPress={handlePress}>
-			<View style={styles.paddedInnerCard}>
-				<View style={styles.cardHeaderContainer}>
-					{business.image_url !== "" && (
-						<SharedElement id={`${business.id}.image`}>
-							<Image
-								style={styles.image}
-								source={{ uri: business.image_url }}
-							/>
-						</SharedElement>
-					)}
-					<View style={styles.titlesContainer}>
-						<Text style={styles.title}>
-							{business.name}
-						</Text>
-						<Text style={styles.subtitle}>
-							{business.location.city}, {business.location.state}
-						</Text>
-					</View>
+			<View style={styles.cardHeaderContainer}>
+				{business.image_url !== "" && (
+					<SharedElement id={`${business.id}.image`}>
+						<Image
+							style={styles.image}
+							source={{ uri: business.image_url }}
+						/>
+					</SharedElement>
+				)}
+			</View>
+			<View style={styles.infoTextGroup}>
+				<View style={styles.titlesContainer}>
+					<Text style={styles.title}>
+						{business.name}
+					</Text>
+					<Text style={styles.subtitle}>
+						{business.location.city}, {business.location.state}
+					</Text>
 				</View>
-				<View style={styles.infoTextGroup}>
-					<Text>Rating: {business.rating}/5</Text>
-					<Text>Price: {business.price}</Text>
+				<Text>Rating: {business.rating}/5</Text>
+				<Text>Price: {business.price}</Text>
+				<View style={{ marginTop: 10, marginBottom: -15 }}>
+					{transactionFields()}
 				</View>
-				{transactionFields()}
+			</View>
+			<View style={styles.buttonView}>
 				<Button title="More Info" onPress={handlePress} />
 			</View>
 		</Pressable>

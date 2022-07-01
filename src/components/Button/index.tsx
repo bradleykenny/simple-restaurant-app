@@ -32,7 +32,7 @@ const Button = (props: IProps) => {
 
 	const onPressIn = () => {
 		Animated.spring(animatedButtonScale, { 
-			toValue: 0.95,
+			toValue: 0.96,
 			useNativeDriver: true
 		}).start();
 	};

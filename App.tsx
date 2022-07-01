@@ -28,7 +28,7 @@ export default function App() {
 
 	initializeApp(firebaseConfig);
 
-	console.log('luigi');
+	console.log('test');
 	const firestore = getFirestore();
 	setDoc(doc(firestore, "characters", "luigi"), {
 		employment: "friend",
@@ -39,35 +39,31 @@ export default function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<NavigationContainer>
-				{ 
-					Platform.OS === 'web' ? <HomeTab /> : (
-						<Tab.Navigator>
-							<Tab.Screen
-								name="Home"
-								component={HomeTab}
-								options={{
-									tabBarIcon: ({ focused, color, size }) => (
-										<Ionicons name="home" color={color} size={size} />
-									),
-									headerShown: false,
-								}}
-							/>
-							<Tab.Screen
-								name="About"
-								component={AboutScreen}
-								options={{
-									tabBarIcon: ({ focused, color, size }) => (
-										<Ionicons
-											name="information-circle"
-											color={color}
-											size={size}
-										/>
-									),
-								}}
-							/>
-						</Tab.Navigator>
-					) 
-				}
+				<Tab.Navigator>
+					<Tab.Screen
+						name="Home"
+						component={HomeTab}
+						options={{
+							tabBarIcon: ({ focused, color, size }) => (
+								<Ionicons name="home" color={color} size={size} />
+							),
+							headerShown: false,
+						}}
+					/>
+					<Tab.Screen
+						name="About"
+						component={AboutScreen}
+						options={{
+							tabBarIcon: ({ focused, color, size }) => (
+								<Ionicons
+									name="information-circle"
+									color={color}
+									size={size}
+								/>
+							),
+						}}
+					/>
+				</Tab.Navigator>
 			</NavigationContainer>
 		</QueryClientProvider>
 	);

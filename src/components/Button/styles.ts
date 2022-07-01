@@ -5,10 +5,10 @@ import { colors } from "../../themes";
 export const styles = StyleSheet.create({
 	mainView: {
 		width: "100%",
-		paddingVertical: 10,
+		paddingVertical: 12,
 		alignContent: "center",
 		backgroundColor: colors.primary[100],
-		borderRadius: 5,
+		borderRadius: 10,
 		borderColor: colors.primary[100],
 		borderWidth: 1,
 	},
