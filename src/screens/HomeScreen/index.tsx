@@ -9,7 +9,6 @@ import {
 	TextInputSubmitEditingEventData,
 	View,
 	Text,
-	NativeScrollEvent,
 } from "react-native";
 import { useQuery } from "react-query";
 import { SharedElement } from "react-navigation-shared-element";
@@ -20,6 +19,7 @@ import { Business } from "../../types/Business";
 import { BusinessSearchDto } from "../../types/BusinessSearch";
 import { styles } from "./styles";
 import translations from "../../constants/translations";
+import { StatusBar } from "expo-status-bar";
 
 interface IProps {}
 
@@ -76,6 +76,7 @@ const Home = (props: IProps) => {
 				scrollIndicatorInsets={styles.scrollInset}
 				ListHeaderComponent={<HeaderSearchBar />}
 			/>
+			<StatusBar style="dark" />
 		</View>
 	);
 };

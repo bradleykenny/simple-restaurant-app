@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -19,16 +19,6 @@ export type RootTabParamList = {
 const Tab = createBottomTabNavigator();
 export default function App() {
 	const queryClient = new QueryClient();
-
-	initializeApp(firebaseConfig);
-
-	console.log("test");
-	const firestore = getFirestore();
-	setDoc(doc(firestore, "characters", "luigi"), {
-		employment: "friend",
-		outfitColor: "green",
-		specialAttack: "jump",
-	});
 
 	return (
 		<QueryClientProvider client={queryClient}>

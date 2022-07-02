@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 	multiline: {},
 	label: {
 		marginTop: 10,
-		marginBottom: 3,
+		marginBottom: 2,
 		marginLeft: 0,
 		fontWeight: "bold",
 	},

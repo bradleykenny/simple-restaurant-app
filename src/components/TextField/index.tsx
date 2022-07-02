@@ -65,7 +65,9 @@ const TextField = (props: IProps) => {
 			return null;
 		}
 
-		return <Text style={styles.label}>{label}</Text>;
+		const color = isFocus ? colors.primary[100] : "black";
+
+		return <Text style={[styles.label, { color }]}>{label}</Text>;
 	};
 
 	return (
@@ -94,6 +96,7 @@ const TextField = (props: IProps) => {
 					autoCorrect={
 						autoCorrect !== undefined ? autoCorrect : false
 					}
+					placeholderTextColor="#rgba(0,0,0,0.5)"
 				/>
 			</Animated.View>
 		</View>

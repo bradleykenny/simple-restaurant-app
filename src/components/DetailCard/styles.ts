@@ -5,12 +5,14 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		marginVertical: 10,
 	},
-	detailCard: {},
+	detailCard: {
+		backgroundColor: "transparent",
+	},
 	scrollViewContainer: {
 		height: "100%",
 		backgroundColor: "#fff",
-		marginTop: -15,
-		overflow: "hidden",
+		marginTop: 15,
+		// overflow: "hidden",
 		borderTopLeftRadius: 10,
 		borderTopRightRadius: 10,
 	},
@@ -20,7 +22,7 @@ export const styles = StyleSheet.create({
 		paddingVertical: 15,
 	},
 	boxShadow: {
-		shadowColor: "black",
+		shadowColor: "rgba(0,0,0,0.5)",
 		shadowOffset: {
 			width: 0,
 			height: 0,
@@ -36,7 +38,7 @@ export const styles = StyleSheet.create({
 		zIndex: -1,
 	},
 	title: {
-		fontSize: 24,
+		fontSize: 30,
 		fontWeight: "bold",
 		marginBottom: 10,
 	},
@@ -56,5 +58,11 @@ export const styles = StyleSheet.create({
 	imageBackdrop: {
 		backgroundColor: "black",
 		zIndex: -1,
+	},
+	chipContainer: {
+		flexDirection: "row",
+		marginLeft: -15,
+		marginRight: -15,
+		paddingLeft: 10,
 	},
 });
