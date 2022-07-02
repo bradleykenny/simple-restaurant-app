@@ -23,12 +23,9 @@ const HomeTab = (props: IProps) => {
 	return (
 		<Stack.Navigator
 			screenOptions={{
-				cardStyleInterpolator: ({ current: { progress } }) => ({
-					cardStyle: { opacity: progress },
-				}),
-				presentation: "modal",
+				animationEnabled: false,
 			}}
-			detachInactiveScreens={Platform.OS === "web"}
+			detachInactiveScreens={false}
 		>
 			<Stack.Screen
 				name="HomeScreen"

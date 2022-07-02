@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		borderColor: "#cdcdcd",
 		borderWidth: 1,
+		marginBottom: 15,
 	},
 	image: {
 		marginRight: 10,
@@ -45,6 +46,7 @@ export const styles = StyleSheet.create({
 	},
 	infoTextGroup: {
 		paddingHorizontal: 15,
+		marginBottom: 15,
 	},
 	transactions: {
 		padding: 15,
@@ -61,6 +63,6 @@ export const styles = StyleSheet.create({
 	},
 	buttonView: {
 		marginHorizontal: 15,
-		marginVertical: 15,
+		marginBottom: 15,
 	},
 });

@@ -15,6 +15,7 @@ import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
 import TextField from "../TextField";
 import { styles } from "./styles";
+import SMReanimated, { SlideInUp } from "react-native-reanimated";
 
 interface IDetailCardProps {
 	business: Business;
@@ -47,19 +48,19 @@ const DetailCard = (props: IDetailCardProps) => {
 				style={[styles.pressable, styles.boxShadow]}
 				onPress={handlePress}
 			>
-				<Icon name="close" size={16} color="#000">
-					<Text style={styles.iconText}> Close </Text>
-				</Icon>
+				<Icon name="close" size={16} color="#000" />
 			</Pressable>
-			<View style={[styles.scrollViewContainer, styles.boxShadow]}>
-				<ScrollView style={styles.scrollView}>
-					<Text style={styles.title}>{business.name}</Text>
-					<Text>Rating: {business.rating}/5</Text>
-					<Text>Price: {business.price}</Text>
-					<TextField label="First Name" placeholder="John" />
-					<TextField label="Last Name" placeholder="Apple" />
-				</ScrollView>
-			</View>
+			<SMReanimated.View entering={SlideInUp}>
+				<View style={[styles.scrollViewContainer, styles.boxShadow]}>
+					<ScrollView style={styles.scrollView}>
+						<Text style={styles.title}>{business.name}</Text>
+						<Text>Rating: {business.rating}/5</Text>
+						<Text>Price: {business.price}</Text>
+						<TextField label="First Name" placeholder="John" />
+						<TextField label="Last Name" placeholder="Apple" />
+					</ScrollView>
+				</View>
+			</SMReanimated.View>
 			<StatusBar style="light" />
 		</View>
 	);

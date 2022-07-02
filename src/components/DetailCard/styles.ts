@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 		paddingVertical: 15,
 	},
 	boxShadow: {
-		shadowColor: "red",
+		shadowColor: "black",
 		shadowOffset: {
 			width: 0,
 			height: 0,

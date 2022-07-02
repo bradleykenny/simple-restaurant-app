@@ -19,6 +19,7 @@ import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
 import { BusinessSearchDto } from "../../types/BusinessSearch";
 import { styles } from "./styles";
+import translations from "../../constants/translations";
 
 interface IProps {}
 
@@ -52,15 +53,18 @@ const Home = (props: IProps) => {
 		refetch();
 	}, [location]);
 
+	const HeaderSearchBar = () => (
+		<View style={styles.textFieldContainer}>
+			<TextField
+				onSubmitEditing={handleTextFieldSubmit}
+				placeholder={translations.homeTab.searchBar.placeholder}
+			/>
+		</View>
+	);
+
 	return (
 		<View style={styles.container}>
 			{isLoading && <Text>LOADING!!!!</Text>}
-			<View style={styles.textFieldContainer}>
-				<TextField
-					onSubmitEditing={handleTextFieldSubmit}
-					placeholder="Enter location"
-				/>
-			</View>
 			<FlatList
 				data={data?.businesses}
 				renderItem={(business: ListRenderItemInfo<Business>) => (
@@ -70,6 +74,7 @@ const Home = (props: IProps) => {
 				)}
 				style={styles.flatListContainer}
 				scrollIndicatorInsets={styles.scrollInset}
+				ListHeaderComponent={<HeaderSearchBar />}
 			/>
 		</View>
 	);
