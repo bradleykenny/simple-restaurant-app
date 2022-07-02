@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
 	cardHeaderContainer: {
 		flex: 1,
 		marginBottom: 10,
-		overflow: "hidden"
+		overflow: "hidden",
 	},
 	titlesContainer: {
 		marginTop: 4,
@@ -13,25 +13,25 @@ export const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: "bold",
 		marginTop: -1,
-		marginBottom: 4
+		marginBottom: 4,
 	},
 	subtitle: {
 		fontSize: 14,
 		color: "#787878",
-		marginBottom: 5
+		marginBottom: 5,
 	},
 	card: {
 		marginVertical: 10,
 		borderRadius: 12,
-		overflow: 'hidden',
+		overflow: "hidden",
 		backgroundColor: "#fff",
-		borderColor: '#cdcdcd',
-		borderWidth: 1
+		borderColor: "#cdcdcd",
+		borderWidth: 1,
 	},
 	image: {
 		marginRight: 10,
-		width: '100%',
-		height: 100
+		width: "100%",
+		height: 100,
 	},
 	textInput: {
 		width: "100%",
@@ -44,13 +44,13 @@ export const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 	infoTextGroup: {
-		paddingHorizontal: 15
+		paddingHorizontal: 15,
 	},
 	transactions: {
 		padding: 15,
 		borderRadius: 10,
 		backgroundColor: "rgba(0,0,0,0.1)",
-		marginBottom: 15
+		marginBottom: 15,
 	},
 	transactionTitle: {
 		fontWeight: "bold",
@@ -61,6 +61,6 @@ export const styles = StyleSheet.create({
 	},
 	buttonView: {
 		marginHorizontal: 15,
-		marginVertical: 15
-	}
+		marginVertical: 15,
+	},
 });

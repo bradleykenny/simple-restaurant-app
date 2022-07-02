@@ -8,7 +8,8 @@ import {
 	NativeSyntheticEvent,
 	TextInputSubmitEditingEventData,
 	View,
-	Text
+	Text,
+	NativeScrollEvent,
 } from "react-native";
 import { useQuery } from "react-query";
 import { SharedElement } from "react-navigation-shared-element";
@@ -23,12 +24,15 @@ interface IProps {}
 
 const Home = (props: IProps) => {
 	const navigation = useNavigation<HomeTabStackType>();
-	
+
 	const [business, setBusiness] = useState<BusinessSearchDto>();
 	const [location, setLocation] = useState("Sydney, NSW");
 
-	const { isLoading, error, data, refetch } = useQuery<{ 'businesses' : Business[] }>('restaurants', () => 
-		fetch(`https://api.yelp.com/v3/businesses/search?location=${location}`,
+	const { isLoading, error, data, refetch } = useQuery<{
+		businesses: Business[];
+	}>("restaurants", () =>
+		fetch(
+			`https://api.yelp.com/v3/businesses/search?location=${location}`,
 			{
 				headers: {
 					Authorization: `Bearer ${YELP_API_KEY}`,
@@ -50,7 +54,7 @@ const Home = (props: IProps) => {
 
 	return (
 		<View style={styles.container}>
-			{ isLoading && <Text>LOADING!!!!</Text>}
+			{isLoading && <Text>LOADING!!!!</Text>}
 			<View style={styles.textFieldContainer}>
 				<TextField
 					onSubmitEditing={handleTextFieldSubmit}

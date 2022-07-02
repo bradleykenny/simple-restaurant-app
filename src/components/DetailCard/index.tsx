@@ -1,7 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
-import { Image, Pressable, SafeAreaView, ScrollView,Text, View } from "react-native";
+import {
+	Image,
+	Pressable,
+	SafeAreaView,
+	ScrollView,
+	Text,
+	View,
+} from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import { SharedElement } from "react-navigation-shared-element";
 import { HomeTabStackType } from "../../navigation/HomeTab";
@@ -22,9 +29,7 @@ const DetailCard = (props: IDetailCardProps) => {
 		navigation.navigate("HomeScreen");
 	};
 
-	useEffect(() => {
-		
-	});
+	useEffect(() => {});
 
 	return (
 		<View style={styles.detailCard}>
@@ -38,32 +43,24 @@ const DetailCard = (props: IDetailCardProps) => {
 					</View>
 				</SharedElement>
 			)}
-			<SafeAreaView>
-				<Pressable
-					style={styles.pressable}
-					onPress={handlePress}
-				>
-					<Icon name="close" size={16} color="#000">
-						<Text style={styles.iconText}> Close </Text>
-					</Icon>
-				</Pressable>
-				<ScrollView style={[styles.paddedInnerCard, styles.boxShadow]} 
-							onScroll={(scroll) => console.log(scroll.nativeEvent.contentOffset)}
-							scrollEventThrottle={16}>
-					<Text style={styles.title}>
-						{business.name}
-					</Text>
-					<Text>
-						Rating: {business.rating}/5
-					</Text>
-					<Text>
-						Price: {business.price}
-					</Text>
-					<TextField label='First Name' placeholder='John' />
-					<TextField label='Last Name' placeholder='Apple' />
+			<Pressable
+				style={[styles.pressable, styles.boxShadow]}
+				onPress={handlePress}
+			>
+				<Icon name="close" size={16} color="#000">
+					<Text style={styles.iconText}> Close </Text>
+				</Icon>
+			</Pressable>
+			<View style={[styles.scrollViewContainer, styles.boxShadow]}>
+				<ScrollView style={styles.scrollView}>
+					<Text style={styles.title}>{business.name}</Text>
+					<Text>Rating: {business.rating}/5</Text>
+					<Text>Price: {business.price}</Text>
+					<TextField label="First Name" placeholder="John" />
+					<TextField label="Last Name" placeholder="Apple" />
 				</ScrollView>
-				<StatusBar style="light" />
-			</SafeAreaView>
+			</View>
+			<StatusBar style="light" />
 		</View>
 	);
 };

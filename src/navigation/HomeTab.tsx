@@ -21,13 +21,14 @@ export type HomeTabStackType = StackNavigationProp<
 const Stack = createSharedElementStackNavigator<HomeTabParamList>();
 const HomeTab = (props: IProps) => {
 	return (
-		<Stack.Navigator screenOptions={{
+		<Stack.Navigator
+			screenOptions={{
 				cardStyleInterpolator: ({ current: { progress } }) => ({
 					cardStyle: { opacity: progress },
 				}),
 				presentation: "modal",
 			}}
-			detachInactiveScreens={Platform.OS === 'web'}
+			detachInactiveScreens={Platform.OS === "web"}
 		>
 			<Stack.Screen
 				name="HomeScreen"

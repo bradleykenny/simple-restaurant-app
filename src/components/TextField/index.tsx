@@ -1,7 +1,4 @@
-import React, { 
-	useRef,
-	useState 
-} from "react";
+import React, { useRef, useState } from "react";
 import {
 	Animated,
 	NativeSyntheticEvent,
@@ -10,7 +7,7 @@ import {
 	TextInput,
 	TextInputSubmitEditingEventData,
 	TextStyle,
-	View
+	View,
 } from "react-native";
 import { colors } from "../../themes";
 import { styles } from "./styles";
@@ -27,19 +24,18 @@ interface IProps {
 }
 
 const TextField = (props: IProps) => {
-	const { 
+	const {
 		label,
-		placeholder, 
+		placeholder,
 		style,
-		autoCorrect, 
-		multiline, 
-		onSubmitEditing, 
+		autoCorrect,
+		multiline,
+		onSubmitEditing,
 	} = props;
 
-	const [ isFocus, setFocus ] = useState(false);
+	const [isFocus, setFocus] = useState(false);
 
 	const borderColorAnim = useRef(new Animated.Value(0)).current;
-
 
 	const handleBlur = () => {
 		Animated.timing(borderColorAnim, {
@@ -68,11 +64,9 @@ const TextField = (props: IProps) => {
 		if (!label) {
 			return null;
 		}
-		
-		return (
-			<Text style={styles.label}>{label}</Text>
-		);
-	}
+
+		return <Text style={styles.label}>{label}</Text>;
+	};
 
 	return (
 		<View>
@@ -82,19 +76,24 @@ const TextField = (props: IProps) => {
 					styles.mainView,
 					{
 						borderColor: borderColorInterpolation,
-						borderWidth: isFocus ? 2 : 1
+						borderWidth: isFocus ? 2 : 1,
 					},
 					style,
 				]}
 			>
 				<TextInput
-					style={[styles.textInput, { paddingVertical: isFocus ? 11 : 12 }]}
+					style={[
+						styles.textInput,
+						{ paddingVertical: isFocus ? 11 : 12 },
+					]}
 					multiline={multiline}
 					onBlur={handleBlur}
 					onFocus={handleFocus}
 					onSubmitEditing={onSubmitEditing}
 					placeholder={placeholder}
-					autoCorrect={autoCorrect !== undefined ? autoCorrect : false}
+					autoCorrect={
+						autoCorrect !== undefined ? autoCorrect : false
+					}
 				/>
 			</Animated.View>
 		</View>

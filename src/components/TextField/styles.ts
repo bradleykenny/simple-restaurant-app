@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
 	textInput: {
 		paddingHorizontal: 15,
 		width: "100%",
-		backgroundColor: "rgba(0,0,0,0)"
+		backgroundColor: "rgba(0,0,0,0)",
 	},
 	inFocus: {
 		borderColor: "blue",
@@ -20,8 +20,8 @@ export const styles = StyleSheet.create({
 	multiline: {},
 	label: {
 		marginTop: 10,
-		marginBottom: 2,
+		marginBottom: 5,
 		marginLeft: 0,
-		fontWeight: "bold"
-	}
+		fontWeight: "bold",
+	},
 });

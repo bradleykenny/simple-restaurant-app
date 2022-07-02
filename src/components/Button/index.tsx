@@ -20,42 +20,47 @@ interface IProps {
 }
 
 const Button = (props: IProps) => {
-	const { 
-		disabled, 
-		loading, 
-		onPress, 
-		style,
-		title
-	} = props;
+	const { disabled, loading, onPress, style, title } = props;
 
 	const animatedButtonScale = new Animated.Value(1);
 
 	const onPressIn = () => {
-		Animated.spring(animatedButtonScale, { 
+		Animated.spring(animatedButtonScale, {
 			toValue: 0.96,
-			useNativeDriver: true
+			useNativeDriver: true,
 		}).start();
 	};
 
 	const onPressOut = () => {
 		Animated.spring(animatedButtonScale, {
 			toValue: 1,
-			useNativeDriver: true
+			useNativeDriver: true,
 		}).start();
-	}
+	};
 
 	const animatedScaleStyle = {
-		transform: [{ 
-			scale: animatedButtonScale
-		}]
-	}
+		transform: [
+			{
+				scale: animatedButtonScale,
+			},
+		],
+	};
 
 	return (
-		<Animated.View style={[animatedScaleStyle, styles.mainView, disabled && styles.disabled, style]}>
-			<Pressable onPress={onPress}
-					   onPressIn={onPressIn}
-					   onPressOut={onPressOut}
-					   disabled={disabled}>
+		<Animated.View
+			style={[
+				animatedScaleStyle,
+				styles.mainView,
+				disabled && styles.disabled,
+				style,
+			]}
+		>
+			<Pressable
+				onPress={onPress}
+				onPressIn={onPressIn}
+				onPressOut={onPressOut}
+				disabled={disabled}
+			>
 				{loading ? (
 					<ActivityIndicator color="white" />
 				) : (
