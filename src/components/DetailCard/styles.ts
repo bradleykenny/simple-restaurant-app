@@ -59,10 +59,23 @@ export const styles = StyleSheet.create({
 		backgroundColor: "black",
 		zIndex: -1,
 	},
-	chipContainer: {
+	listItemView: {
 		flexDirection: "row",
-		marginLeft: -15,
-		marginRight: -15,
-		paddingLeft: 10,
+		marginVertical: 5,
+	},
+	ratingStars: {
+		alignItems: "flex-start",
+		marginBottom: 15,
+	},
+	ratingText: {
+		fontSize: 16,
+		marginLeft: 5,
+	},
+	listItemIcon: {
+		marginRight: 5,
+	},
+	menuItemsFlatList: {
+		flex: 1,
+		marginTop: 10,
 	},
 });

@@ -1,15 +1,25 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Image, Pressable, ScrollView, Text, View } from "react-native";
+import {
+	FlatList,
+	Image,
+	Pressable,
+	ScrollView,
+	Text,
+	View,
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { SharedElement } from "react-navigation-shared-element";
 import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
 import { styles } from "./styles";
 import Reanimated, { SlideInDown } from "react-native-reanimated";
-import Chip from "../Chip";
 import { Rating } from "react-native-ratings";
+import { colors } from "../../themes";
+import ChipGroup from "../ChipGroup";
+import menuItems from "../../data/menuItems";
+import MenuItemCard from "../MenuItemCard";
 
 interface IDetailCardProps {
 	business: Business;
@@ -23,20 +33,6 @@ const DetailCard = (props: IDetailCardProps) => {
 	const handlePress = () => {
 		navigation.navigate("HomeScreen");
 	};
-
-	console.log(business);
-
-	const Chips = () => (
-		<ScrollView
-			style={styles.chipContainer}
-			horizontal
-			showsHorizontalScrollIndicator={false}
-		>
-			{business.categories.map((category) => (
-				<Chip text={category.title} key={category.alias} />
-			))}
-		</ScrollView>
-	);
 
 	return (
 		<View style={styles.detailCard}>
@@ -56,44 +52,52 @@ const DetailCard = (props: IDetailCardProps) => {
 				style={[styles.pressable, styles.boxShadow]}
 				onPress={handlePress}
 			>
-				<Icon name="close" size={16} color="#000" />
+				<Icon name="close" size={16} color={colors.black} />
 			</Pressable>
 			<Reanimated.View entering={SlideInDown.delay(200).duration(400)}>
 				<View style={[styles.scrollViewContainer, styles.boxShadow]}>
 					<ScrollView style={styles.scrollView}>
 						<Text style={styles.title}>{business.name}</Text>
-						<Rating
-							type="star"
-							startingValue={business.rating}
-							imageSize={30}
-							readonly
-							style={{
-								alignItems: "flex-start",
-								marginBottom: 15,
-							}}
+						<View style={styles.listItemView}>
+							<Rating
+								type="star"
+								startingValue={business.rating}
+								imageSize={20}
+								readonly
+								style={styles.ratingStars}
+							/>
+							<Text style={styles.ratingText}>
+								{business.rating}
+							</Text>
+						</View>
+
+						<ChipGroup
+							titles={business.categories.map(
+								(category) => category.title
+							)}
 						/>
-						<Chips />
-						<View
-							style={{ flexDirection: "row", marginVertical: 5 }}
-						>
+						<View style={styles.listItemView}>
 							<Icon
 								name="map"
 								size={16}
-								style={{ marginRight: 5 }}
+								style={styles.listItemIcon}
 							/>
 							<Text>
 								{`${business.location.address1}, ${business.location.city}, ${business.location.state} ${business.location.zip_code} ${business.location.country}`}
 							</Text>
 						</View>
-						<View
-							style={{ flexDirection: "row", marginVertical: 5 }}
-						>
+						<View style={styles.listItemView}>
 							<Icon
 								name="phone"
 								size={16}
-								style={{ marginRight: 5 }}
+								style={styles.listItemIcon}
 							/>
 							<Text>{business.phone}</Text>
+						</View>
+						<View style={styles.menuItemsFlatList}>
+							{menuItems.map((item) => (
+								<MenuItemCard data={item} />
+							))}
 						</View>
 					</ScrollView>
 				</View>
