@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
+import { ColorPropType, StyleSheet } from "react-native";
 import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
 	menuItemCard: {
 		flexDirection: "row",
-		backgroundColor: colors.gray[100],
+		backgroundColor: colors.gray[200],
 		borderRadius: 12,
 		padding: 10,
 		width: "100%",
@@ -14,15 +14,24 @@ export const styles = StyleSheet.create({
 	image: {
 		height: 80,
 		width: 80,
-		borderRadius: 10,
+		borderRadius: 8,
 	},
 	title: {
-		fontSize: 18,
+		fontSize: 14,
 		fontWeight: "bold",
+		marginVertical: 3,
 	},
-	price: {},
+	description: {
+		fontSize: 12,
+		marginVertical: 1,
+		color: colors.gray[700],
+	},
+	price: {
+		fontSize: 12,
+		marginBottom: 3,
+	},
 	textGroup: {
 		flex: 1,
-		paddingLeft: 20,
+		marginLeft: 15,
 	},
 });

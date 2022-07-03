@@ -95,8 +95,17 @@ const DetailCard = (props: IDetailCardProps) => {
 							<Text>{business.phone}</Text>
 						</View>
 						<View style={styles.menuItemsFlatList}>
+							<Text
+								style={{
+									fontSize: 18,
+									fontWeight: "bold",
+									marginBottom: 10,
+								}}
+							>
+								Menu
+							</Text>
 							{menuItems.map((item) => (
-								<MenuItemCard data={item} />
+								<MenuItemCard data={item} key={item.name} />
 							))}
 						</View>
 					</ScrollView>

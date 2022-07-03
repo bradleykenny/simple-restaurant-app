@@ -14,7 +14,8 @@ const MenuItemCard = (props: IMenuItemCardProps) => {
 			<Image source={{ uri: data.image_url }} style={styles.image} />
 			<View style={styles.textGroup}>
 				<Text style={styles.title}>{data.name}</Text>
-				<Text style={styles.price}>{data.price}</Text>
+				<Text style={styles.price}>{`$${data.price}`}</Text>
+				<Text style={styles.description}>{data.description}</Text>
 			</View>
 		</View>
 	);

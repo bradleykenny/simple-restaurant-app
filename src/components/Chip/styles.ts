@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
 	chip: {
@@ -7,7 +8,7 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 5,
 		marginBottom: 10,
 		borderRadius: 5,
-		backgroundColor: "rgba(0,0,0,0.1)",
+		backgroundColor: colors.gray[200],
 		alignSelf: "flex-start",
 	},
 	text: {
