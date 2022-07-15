@@ -5,30 +5,18 @@ export const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 	detailCard: {
-		flex: 1,
 		backgroundColor: "transparent",
 	},
 	scrollViewContainer: {
 		backgroundColor: "#fff",
-		height: '100%',
 		borderTopLeftRadius: 15,
 		borderTopRightRadius: 15,
 	},
 	scrollView: {
 		paddingHorizontal: 15,
-		paddingTop: 25
-	},
-	boxShadow: {
-		shadowColor: "rgba(0,0,0,0.5)",
-		shadowOffset: {
-			width: 0,
-			height: 0,
-		},
-		shadowOpacity: 1,
-		shadowRadius: 10,
+		paddingTop: 25,
 	},
 	image: {
-		width: "100%",
 		height: 200,
 		resizeMode: "cover",
 		opacity: 0.8,
@@ -38,7 +26,7 @@ export const styles = StyleSheet.create({
 		height: 200,
 		backgroundColor: "black",
 		zIndex: -1,
-		marginBottom: -25
+		marginBottom: -25,
 	},
 	title: {
 		fontSize: 30,
@@ -75,6 +63,6 @@ export const styles = StyleSheet.create({
 	},
 	menuItemsFlatList: {
 		marginTop: 10,
-		marginBottom: 30
+		marginBottom: 30,
 	},
 });
