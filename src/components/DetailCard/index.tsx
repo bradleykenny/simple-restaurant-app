@@ -109,12 +109,6 @@ const DetailCard = (props: IDetailCardProps) => {
 							{menuItems.map((item) => (
 								<MenuItemCard data={item} key={item.name} />
 							))}
-							{menuItems.map((item) => (
-								<MenuItemCard data={item} key={item.name} />
-							))}
-							{menuItems.map((item) => (
-								<MenuItemCard data={item} key={item.name} />
-							))}
 						</View>
 					</ScrollView>
 				</View>
