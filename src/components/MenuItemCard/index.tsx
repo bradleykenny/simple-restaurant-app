@@ -9,6 +9,7 @@ interface IMenuItemCardProps {
 
 const MenuItemCard = (props: IMenuItemCardProps) => {
 	const { data } = props;
+	console.log(data);
 	return (
 		<View style={styles.menuItemCard}>
 			<Image source={{ uri: data.image_url }} style={styles.image} />
