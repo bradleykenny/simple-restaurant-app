@@ -40,7 +40,7 @@ const HomeTab = (props: IProps) => {
 				component={DetailScreen}
 				options={{
 					headerShown: false,
-					gestureEnabled: false,
+					gestureEnabled: false
 				}}
 				sharedElements={(route, otherRoute, showing) => {
 					const { business } = route.params;

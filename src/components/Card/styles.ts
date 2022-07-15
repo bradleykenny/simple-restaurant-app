@@ -22,17 +22,15 @@ export const styles = StyleSheet.create({
 	},
 	card: {
 		marginVertical: 10,
-		borderRadius: 12,
+		borderRadius: 8,
 		overflow: "hidden",
 		backgroundColor: "#fff",
-		borderColor: "#cdcdcd",
-		borderWidth: 1,
 		marginBottom: 15,
 	},
 	image: {
 		marginRight: 10,
 		width: "100%",
-		height: 100,
+		height: 130,
 	},
 	textInput: {
 		width: "100%",

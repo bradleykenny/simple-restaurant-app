@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingHorizontal: 15,
+		backgroundColor: colors.gray[200]
 	},
 	textFieldContainer: {
 		zIndex: 1,

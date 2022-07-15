@@ -2,24 +2,21 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		marginVertical: 10,
 	},
 	detailCard: {
+		flex: 1,
 		backgroundColor: "transparent",
 	},
 	scrollViewContainer: {
-		height: "100%",
 		backgroundColor: "#fff",
-		marginTop: 15,
-		// overflow: "hidden",
-		borderTopLeftRadius: 10,
-		borderTopRightRadius: 10,
+		height: '100%',
+		borderTopLeftRadius: 15,
+		borderTopRightRadius: 15,
 	},
 	scrollView: {
-		height: "100%",
 		paddingHorizontal: 15,
-		paddingVertical: 15,
+		paddingTop: 25
 	},
 	boxShadow: {
 		shadowColor: "rgba(0,0,0,0.5)",
@@ -37,16 +34,22 @@ export const styles = StyleSheet.create({
 		opacity: 0.8,
 		zIndex: -1,
 	},
+	imageBackdrop: {
+		height: 200,
+		backgroundColor: "black",
+		zIndex: -1,
+		marginBottom: -25
+	},
 	title: {
 		fontSize: 30,
 		fontWeight: "bold",
-		marginBottom: 10,
+		marginBottom: 5,
 	},
 	pressable: {
 		position: "absolute",
 		top: 50,
 		right: 15,
-		padding: 8,
+		padding: 6,
 		borderRadius: 60 / 2,
 		backgroundColor: "white",
 		zIndex: 1,
@@ -55,17 +58,13 @@ export const styles = StyleSheet.create({
 		fontSize: 16,
 		color: "black",
 	},
-	imageBackdrop: {
-		backgroundColor: "black",
-		zIndex: -1,
-	},
 	listItemView: {
 		flexDirection: "row",
 		marginVertical: 5,
 	},
 	ratingStars: {
 		alignItems: "flex-start",
-		marginBottom: 15,
+		marginBottom: 10,
 	},
 	ratingText: {
 		fontSize: 16,
@@ -75,7 +74,7 @@ export const styles = StyleSheet.create({
 		marginRight: 5,
 	},
 	menuItemsFlatList: {
-		flex: 1,
 		marginTop: 10,
+		marginBottom: 30
 	},
 });

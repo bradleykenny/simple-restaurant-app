@@ -2,7 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
-	FlatList,
 	Image,
 	Pressable,
 	ScrollView,
@@ -14,7 +13,11 @@ import { SharedElement } from "react-navigation-shared-element";
 import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
 import { styles } from "./styles";
-import Reanimated, { SlideInDown } from "react-native-reanimated";
+import Reanimated, { 
+	SlideInDown, 
+	SlideOutUp,
+	useSharedValue 
+} from "react-native-reanimated";
 import { Rating } from "react-native-ratings";
 import { colors } from "../../themes";
 import ChipGroup from "../ChipGroup";
@@ -29,6 +32,7 @@ const DetailCard = (props: IDetailCardProps) => {
 	const { business } = props;
 
 	const navigation = useNavigation<HomeTabStackType>();
+	const scrollViewHeight = useSharedValue(0);
 
 	const handlePress = () => {
 		navigation.navigate("HomeScreen");
@@ -36,25 +40,23 @@ const DetailCard = (props: IDetailCardProps) => {
 
 	return (
 		<View style={styles.detailCard}>
-			{business.image_url !== "" && (
-				<View style={{ marginBottom: -25 }}>
-					<SharedElement id={`${business.id}.image`}>
-						<View style={styles.imageBackdrop}>
-							<Image
-								style={styles.image}
-								source={{ uri: business.image_url }}
-							/>
-						</View>
-					</SharedElement>
-				</View>
-			)}
-			<Pressable
-				style={[styles.pressable, styles.boxShadow]}
-				onPress={handlePress}
-			>
-				<Icon name="close" size={16} color={colors.black} />
+			<Pressable style={[styles.pressable, styles.boxShadow]}
+					   onPress={handlePress}>
+				<Icon name="close" 
+				      size={16} 
+					  color={colors.black} />
 			</Pressable>
-			<Reanimated.View entering={SlideInDown.delay(200).duration(400)}>
+			{business.image_url !== "" && (
+				<SharedElement id={`${business.id}.image`}>
+					<View style={styles.imageBackdrop}>
+						<Image
+							style={styles.image}
+							source={{ uri: business.image_url }}
+						/>
+					</View>
+				</SharedElement>
+			)}
+			<Reanimated.View entering={SlideInDown.delay(200).duration(400)} style={{ flex: 1}}>
 				<View style={[styles.scrollViewContainer, styles.boxShadow]}>
 					<ScrollView style={styles.scrollView}>
 						<Text style={styles.title}>{business.name}</Text>
@@ -104,6 +106,12 @@ const DetailCard = (props: IDetailCardProps) => {
 							>
 								Menu
 							</Text>
+							{menuItems.map((item) => (
+								<MenuItemCard data={item} key={item.name} />
+							))}
+							{menuItems.map((item) => (
+								<MenuItemCard data={item} key={item.name} />
+							))}
 							{menuItems.map((item) => (
 								<MenuItemCard data={item} key={item.name} />
 							))}
