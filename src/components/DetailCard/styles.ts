@@ -1,14 +1,15 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
 	container: {
 		marginVertical: 10,
 	},
 	detailCard: {
-		backgroundColor: "transparent",
+		backgroundColor: colors.transparent,
 	},
 	content: {
-		backgroundColor: "white",
+		backgroundColor: colors.white,
 		zIndex: 10,
 		paddingHorizontal: 15,
 		paddingTop: 25,
@@ -17,7 +18,7 @@ export const styles = StyleSheet.create({
 		marginTop: -30,
 	},
 	scrollViewContainer: {
-		backgroundColor: "#fff",
+		backgroundColor: colors.white,
 		borderTopLeftRadius: 15,
 		borderTopRightRadius: 15,
 	},
@@ -32,7 +33,7 @@ export const styles = StyleSheet.create({
 	imageOverlay: {
 		position: "absolute",
 		height: 250,
-		backgroundColor: "black",
+		backgroundColor: colors.black,
 		zIndex: -1,
 	},
 	title: {
@@ -46,7 +47,7 @@ export const styles = StyleSheet.create({
 		right: 15,
 		padding: 6,
 		borderRadius: 60 / 2,
-		backgroundColor: "white",
+		backgroundColor: colors.white,
 		zIndex: 1,
 	},
 	iconText: {

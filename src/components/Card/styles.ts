@@ -31,6 +31,7 @@ export const styles = StyleSheet.create({
 		marginRight: 10,
 		width: "100%",
 		height: 130,
+		borderRadius: 12,
 	},
 	textInput: {
 		width: "100%",

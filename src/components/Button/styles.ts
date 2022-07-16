@@ -17,10 +17,10 @@ export const styles = StyleSheet.create({
 	},
 	text: {
 		textAlign: "center",
-		color: "#fff",
+		color: colors.white,
 	},
 	disabled: {
 		backgroundColor: colors.inactive,
-		borderColor: "black",
+		borderColor: colors.black,
 	},
 });

@@ -3,11 +3,10 @@ import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		paddingHorizontal: 15,
-		backgroundColor: colors.gray[200]
+		backgroundColor: colors.white,
 	},
-	textFieldContainer: {
+	inputTextContainer: {
 		zIndex: 1,
 		marginHorizontal: -15,
 		paddingHorizontal: 15,
@@ -17,9 +16,9 @@ export const styles = StyleSheet.create({
 	scrollInset: {
 		right: -15,
 	},
-	flatListContainer: {
-		flex: 1,
-		overflow: "visible",
-		zIndex: 98,
+	foodCategoriesFlatList: {
+		paddingHorizontal: 15,
+		marginHorizontal: -15,
+		marginBottom: 5,
 	},
 });

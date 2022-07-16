@@ -5,6 +5,8 @@ export const colors = {
 	},
 	inactive: "#CDCDCD",
 	black: "#000000",
+	white: "#FFFFFF",
+	transparent: "transparent",
 	gray: {
 		100: "#f8f9fa",
 		200: "#e9ecef",

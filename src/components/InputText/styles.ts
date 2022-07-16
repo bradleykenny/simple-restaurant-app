@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
 	mainView: {
@@ -6,13 +7,13 @@ export const styles = StyleSheet.create({
 		borderRadius: 8,
 		borderWidth: 1,
 		borderColor: "rgba(205,205,205,1)",
-		backgroundColor: "#ffffff",
+		backgroundColor: colors.white,
 		marginVertical: 5,
 	},
 	textInput: {
 		paddingHorizontal: 15,
 		width: "100%",
-		backgroundColor: "rgba(0,0,0,0)",
+		backgroundColor: colors.transparent,
 	},
 	inFocus: {
 		borderColor: "blue",

@@ -1,15 +1,13 @@
-import React from "react";
-import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { initializeApp } from "firebase/app";
+import React from "react";
+import { StyleSheet } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { QueryClient, QueryClientProvider } from "react-query";
 import HomeTab from "./src/navigation/HomeTab";
 import AboutScreen from "./src/screens/AboutScreen";
 
-import { firebaseConfig } from "./firestoreConfig";
-import { getFirestore, setDoc, doc } from "firebase/firestore";
+import { colors } from "./src/themes";
 
 export type RootTabParamList = {
 	Home: undefined;
@@ -60,7 +58,7 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#fff",
+		backgroundColor: colors.white,
 		alignItems: "center",
 		justifyContent: "center",
 	},

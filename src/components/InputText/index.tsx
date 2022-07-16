@@ -12,7 +12,7 @@ import {
 import { colors } from "../../themes";
 import { styles } from "./styles";
 
-interface IProps {
+interface IInputTextProps {
 	label?: string;
 	placeholder?: string;
 	style?: StyleProp<TextStyle>;
@@ -23,7 +23,7 @@ interface IProps {
 	) => void;
 }
 
-const TextField = (props: IProps) => {
+const InputText = (props: IInputTextProps) => {
 	const {
 		label,
 		placeholder,
@@ -93,9 +93,7 @@ const TextField = (props: IProps) => {
 					onFocus={handleFocus}
 					onSubmitEditing={onSubmitEditing}
 					placeholder={placeholder}
-					autoCorrect={
-						autoCorrect !== undefined ? autoCorrect : false
-					}
+					autoCorrect={autoCorrect || false}
 					placeholderTextColor="#rgba(0,0,0,0.5)"
 				/>
 			</Animated.View>
@@ -103,4 +101,4 @@ const TextField = (props: IProps) => {
 	);
 };
 
-export default TextField;
+export default InputText;

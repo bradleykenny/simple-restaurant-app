@@ -1,83 +1,81 @@
-import { YELP_API_KEY } from "@env";
-import { useNavigation } from "@react-navigation/native";
-
+import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import {
 	FlatList,
-	ListRenderItemInfo,
 	NativeSyntheticEvent,
+	ScrollView,
+	Text,
 	TextInputSubmitEditingEventData,
 	View,
-	Text,
 } from "react-native";
-import { useQuery } from "react-query";
 import { SharedElement } from "react-navigation-shared-element";
 import Card from "../../components/Card";
-import TextField from "../../components/TextField";
-import { HomeTabStackType } from "../../navigation/HomeTab";
-import { Business } from "../../types/Business";
-import { BusinessSearchDto } from "../../types/BusinessSearch";
-import { styles } from "./styles";
+import FoodCategoryTile from "../../components/FoodCategoryTile";
+import InputText from "../../components/InputText";
+import foodCategories from "../../constants/foodCategories";
 import translations from "../../constants/translations";
-import { StatusBar } from "expo-status-bar";
+import useFeedData from "../../hooks/useFeedData";
+import { styles } from "./styles";
 
-interface IProps {}
+interface IHomeProps {}
 
-const Home = (props: IProps) => {
-	const navigation = useNavigation<HomeTabStackType>();
-
-	const [business, setBusiness] = useState<BusinessSearchDto>();
+const Home = (props: IHomeProps) => {
 	const [location, setLocation] = useState("Sydney, NSW");
+	const { data, isLoading, refetch } = useFeedData(location);
 
-	const { isLoading, error, data, refetch } = useQuery<{
-		businesses: Business[];
-	}>("restaurants", () =>
-		fetch(
-			`https://api.yelp.com/v3/businesses/search?location=${location}`,
-			{
-				headers: {
-					Authorization: `Bearer ${YELP_API_KEY}`,
-				},
-			}
-		).then((res) => res.json())
-	);
-
-	const handleTextFieldSubmit = (
-		e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
-	) => {
-		setLocation(e.nativeEvent.text);
-		// setLocation(e.currentTarget)
-	};
+	const [selectedCategory, setSelectedCategory] = useState("");
 
 	useEffect(() => {
 		refetch();
 	}, [location]);
 
+	const handleInputTextSubmit = (
+		e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
+	) => {
+		setLocation(e.nativeEvent.text);
+	};
+
+	const handleFoodCategoryPress = (text: string) => {
+		if (selectedCategory === text) {
+			setSelectedCategory("");
+		} else {
+			setSelectedCategory(text);
+		}
+	};
+
 	const HeaderSearchBar = () => (
-		<View style={styles.textFieldContainer}>
-			<TextField
-				onSubmitEditing={handleTextFieldSubmit}
+		<View style={styles.inputTextContainer}>
+			<InputText
+				onSubmitEditing={handleInputTextSubmit}
 				placeholder={translations.homeTab.searchBar.placeholder}
 			/>
 		</View>
 	);
 
 	return (
-		<View style={styles.container}>
-			{isLoading && <Text>LOADING!!!!</Text>}
+		<ScrollView style={styles.container}>
+			{isLoading && <Text>Loading...</Text>}
+			<HeaderSearchBar />
 			<FlatList
-				data={data?.businesses}
-				renderItem={(business: ListRenderItemInfo<Business>) => (
-					<SharedElement id={`${business.item.id}.card`}>
-						<Card business={business.item} />
-					</SharedElement>
+				data={foodCategories}
+				renderItem={({ item }) => (
+					<FoodCategoryTile
+						item={item}
+						selected={item.name === selectedCategory}
+						onPress={handleFoodCategoryPress}
+					/>
 				)}
-				style={styles.flatListContainer}
-				scrollIndicatorInsets={styles.scrollInset}
-				ListHeaderComponent={<HeaderSearchBar />}
+				style={styles.foodCategoriesFlatList}
+				horizontal
+				showsHorizontalScrollIndicator={false}
 			/>
+			{data?.businesses.map((business) => (
+				<SharedElement id={`${business.id}.card`}>
+					<Card business={business} key={business.id} />
+				</SharedElement>
+			))}
 			<StatusBar style="dark" />
-		</View>
+		</ScrollView>
 	);
 };
 
