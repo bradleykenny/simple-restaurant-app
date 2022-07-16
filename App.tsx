@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { QueryClient, QueryClientProvider } from "react-query";
 import HomeTab from "./src/navigation/HomeTab";
 import AboutScreen from "./src/screens/AboutScreen";
@@ -23,14 +23,24 @@ export default function App() {
 		<SafeAreaProvider>
 			<QueryClientProvider client={queryClient}>
 				<NavigationContainer>
-					<Tab.Navigator>
+					<Tab.Navigator
+						screenOptions={
+							{
+								// tabBarShowLabel: false,
+							}
+						}
+					>
 						<Tab.Screen
 							name="Home"
 							component={HomeTab}
 							options={{
 								tabBarIcon: ({ focused, color, size }) => (
-									<Ionicons
-										name="home"
+									<Icon
+										name={
+											focused
+												? "home-variant"
+												: "home-variant-outline"
+										}
 										color={color}
 										size={size}
 									/>
@@ -39,12 +49,63 @@ export default function App() {
 							}}
 						/>
 						<Tab.Screen
-							name="About"
+							name="Cart"
 							component={AboutScreen}
 							options={{
 								tabBarIcon: ({ focused, color, size }) => (
-									<Ionicons
-										name="information-circle"
+									<Icon
+										name={
+											focused
+												? "shopping"
+												: "shopping-outline"
+										}
+										color={color}
+										size={size}
+									/>
+								),
+							}}
+						/>
+						<Tab.Screen
+							name="Offers"
+							component={AboutScreen}
+							options={{
+								tabBarIcon: ({ focused, color, size }) => (
+									<Icon
+										name={focused ? "tag" : "tag-outline"}
+										color={color}
+										size={size}
+									/>
+								),
+							}}
+						/>
+						<Tab.Screen
+							name="Search"
+							component={AboutScreen}
+							options={{
+								tabBarIcon: ({ focused, color, size }) => (
+									<Icon
+										name={
+											focused
+												? "store-search"
+												: "store-search-outline"
+										}
+										color={color}
+										size={size}
+									/>
+								),
+							}}
+						/>
+						<Tab.Screen
+							name="Account"
+							component={AboutScreen}
+							options={{
+								tabBarIcon: ({ focused, color, size }) => (
+									<Icon
+										name={
+											focused
+												? "account-circle"
+												: "account-circle-outline"
+										}
 										color={color}
 										size={size}
 									/>

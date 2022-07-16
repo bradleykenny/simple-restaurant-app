@@ -45,7 +45,7 @@ export const styles = StyleSheet.create({
 		overflow: "hidden",
 	},
 	infoTextGroup: {
-		paddingHorizontal: 15,
+		paddingHorizontal: 5,
 		marginBottom: 15,
 		paddingVertical: 5,
 	},
