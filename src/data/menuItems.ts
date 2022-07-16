@@ -36,6 +36,20 @@ const menuItems: MenuItem[] = [
 		image_url:
 			"https://unsplash.com/photos/wY8dOAApKE4/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8N3x8Y2hpcHN8ZW58MHx8fHwxNjU2ODE1NzI2&force=true&w=640",
 	},
+	{
+		name: "Garlic Bread",
+		description: "Soph's favourite type of bread",
+		price: 6.5,
+		image_url:
+			"https://unsplash.com/photos/zevnVcUyiJg/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU3ODkzNTE1&force=true&w=640",
+	},
+	{
+		name: "M&Ms",
+		description: "Tasty chocolates",
+		price: 2.5,
+		image_url:
+			"https://unsplash.com/photos/UDJPrpY5YGA/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTB8fG0lMjZtc3xlbnwwfHx8fDE2NTc4OTM0NzI&force=true&w=640",
+	},
 ];
 
 export default menuItems;

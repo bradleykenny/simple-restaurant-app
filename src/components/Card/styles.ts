@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
 	},
 	card: {
 		marginVertical: 10,
-		borderRadius: 8,
+		borderRadius: 10,
 		overflow: "hidden",
 		backgroundColor: "#fff",
 		marginBottom: 15,
@@ -45,6 +45,7 @@ export const styles = StyleSheet.create({
 	infoTextGroup: {
 		paddingHorizontal: 15,
 		marginBottom: 15,
+		paddingVertical: 5,
 	},
 	transactions: {
 		padding: 15,
@@ -62,5 +63,9 @@ export const styles = StyleSheet.create({
 	buttonView: {
 		marginHorizontal: 15,
 		marginBottom: 15,
+	},
+	ratingStars: {
+		alignItems: "flex-start",
+		paddingVertical: 5,
 	},
 });

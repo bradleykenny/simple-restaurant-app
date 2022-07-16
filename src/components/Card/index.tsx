@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Animated, Image, Pressable, Text, View } from "react-native";
+import { Rating } from "react-native-ratings";
 import { SharedElement } from "react-navigation-shared-element";
 import translations from "../../constants/translations";
 import { HomeTabStackType } from "../../navigation/HomeTab";
@@ -87,10 +88,13 @@ const Card = (props: ICardProps) => {
 					<Text style={styles.subtitle}>
 						{business.location.city}, {business.location.state}
 					</Text>
-					<Text>
-						{translations.homeTab.card.labels.rating}
-						{business.rating}/5
-					</Text>
+					<Rating
+						type="star"
+						startingValue={business.rating}
+						imageSize={20}
+						readonly
+						style={styles.ratingStars}
+					/>
 					<Text>
 						{translations.homeTab.card.labels.price}
 						{business.price}

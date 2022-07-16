@@ -7,26 +7,33 @@ export const styles = StyleSheet.create({
 	detailCard: {
 		backgroundColor: "transparent",
 	},
+	content: {
+		backgroundColor: "white",
+		zIndex: 10,
+		paddingHorizontal: 15,
+		paddingTop: 25,
+		borderTopLeftRadius: 15,
+		borderTopRightRadius: 15,
+		marginTop: -30,
+	},
 	scrollViewContainer: {
 		backgroundColor: "#fff",
 		borderTopLeftRadius: 15,
 		borderTopRightRadius: 15,
 	},
-	scrollView: {
-		paddingHorizontal: 15,
-		paddingTop: 25,
-	},
+	scrollView: {},
 	image: {
-		height: 200,
+		height: 250,
 		resizeMode: "cover",
 		opacity: 0.8,
 		zIndex: -1,
+		backgroundColor: "black",
 	},
-	imageBackdrop: {
-		height: 200,
+	imageOverlay: {
+		position: "absolute",
+		height: 250,
 		backgroundColor: "black",
 		zIndex: -1,
-		marginBottom: -25,
 	},
 	title: {
 		fontSize: 30,
@@ -63,6 +70,5 @@ export const styles = StyleSheet.create({
 	},
 	menuItemsFlatList: {
 		marginTop: 10,
-		marginBottom: 30,
 	},
 });

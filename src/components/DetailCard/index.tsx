@@ -1,11 +1,20 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Image, Pressable, ScrollView, Text, View } from "react-native";
+import {
+	NativeScrollEvent,
+	NativeSyntheticEvent,
+	Pressable,
+	ScrollView,
+	Text,
+	View,
+} from "react-native";
 import { Rating } from "react-native-ratings";
-import { useSharedValue } from "react-native-reanimated";
+import Reanimated, {
+	useAnimatedStyle,
+	useSharedValue,
+} from "react-native-reanimated";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { SharedElement } from "react-navigation-shared-element";
 import menuItems from "../../data/menuItems";
 import { HomeTabStackType } from "../../navigation/HomeTab";
 import { colors } from "../../themes";
@@ -25,11 +34,30 @@ const DetailCard = (props: IDetailCardProps) => {
 	console.log(business);
 
 	const navigation = useNavigation<HomeTabStackType>();
-	const scrollViewHeight = useSharedValue(0);
+	const imageScale = useSharedValue(1);
+
+	const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+		const { y } = event.nativeEvent.contentOffset;
+		if (y <= 0) {
+			console.log(200 + Math.abs(y));
+			imageScale.value = 1 + Math.abs(y) / 150;
+		}
+	};
 
 	const handlePress = () => {
 		navigation.navigate("HomeScreen");
 	};
+
+	const animatedStyleImage = useAnimatedStyle(() => ({
+		transform: [
+			{
+				scale: imageScale.value,
+			},
+			{
+				translateY: imageScale.value * -15,
+			},
+		],
+	}));
 
 	return (
 		<View style={styles.detailCard}>
@@ -39,18 +67,28 @@ const DetailCard = (props: IDetailCardProps) => {
 			>
 				<Icon name="close" size={16} color={colors.black} />
 			</Pressable>
-			{business.image_url !== "" && (
-				<SharedElement id={`${business.id}.image`}>
-					<View style={styles.imageBackdrop}>
-						<Image
-							style={styles.image}
+			<ScrollView
+				style={styles.scrollView}
+				contentContainerStyle={styles.scrollViewContainer}
+				stickyHeaderIndices={[0]}
+				onScroll={handleScroll}
+				scrollEventThrottle={16}
+			>
+				{business.image_url !== "" && (
+					<View style={[styles.imageOverlay]}>
+						<Reanimated.Image
+							style={[styles.image, animatedStyleImage]}
 							source={{ uri: business.image_url }}
 						/>
 					</View>
-				</SharedElement>
-			)}
-			<View style={[styles.scrollViewContainer, commonStyles.boxShadow]}>
-				<ScrollView style={styles.scrollView}>
+				)}
+				<View
+					style={[
+						styles.content,
+						commonStyles.boxShadow,
+						{ shadowOffset: { width: 0, height: -15 } },
+					]}
+				>
 					<Text style={styles.title}>{business.name}</Text>
 					<View style={styles.listItemView}>
 						<Rating
@@ -100,8 +138,8 @@ const DetailCard = (props: IDetailCardProps) => {
 							<MenuItemCard data={item} key={item.name} />
 						))}
 					</View>
-				</ScrollView>
-			</View>
+				</View>
+			</ScrollView>
 			<StatusBar style="light" />
 		</View>
 	);
