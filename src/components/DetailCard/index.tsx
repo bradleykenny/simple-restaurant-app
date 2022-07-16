@@ -31,15 +31,12 @@ interface IDetailCardProps {
 const DetailCard = (props: IDetailCardProps) => {
 	const { business } = props;
 
-	console.log(business);
-
 	const navigation = useNavigation<HomeTabStackType>();
 	const imageScale = useSharedValue(1);
 
 	const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
 		const { y } = event.nativeEvent.contentOffset;
 		if (y <= 0) {
-			console.log(200 + Math.abs(y));
 			imageScale.value = 1 + Math.abs(y) / 150;
 		}
 	};
