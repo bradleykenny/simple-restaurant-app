@@ -6,14 +6,15 @@ export const styles = StyleSheet.create({
 		width: "100%",
 		borderRadius: 8,
 		borderWidth: 1,
-		borderColor: "rgba(205,205,205,1)",
-		backgroundColor: colors.white,
+		borderColor: colors.gray[300],
+		backgroundColor: colors.gray[200],
 		marginVertical: 5,
 	},
 	textInput: {
 		paddingHorizontal: 15,
 		width: "100%",
 		backgroundColor: colors.transparent,
+		fontSize: 16,
 	},
 	inFocus: {
 		borderColor: "blue",

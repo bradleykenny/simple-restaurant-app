@@ -1,13 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import {
+	ActivityIndicator,
 	FlatList,
 	NativeSyntheticEvent,
+	RefreshControl,
 	ScrollView,
-	Text,
 	TextInputSubmitEditingEventData,
 	View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { SharedElement } from "react-navigation-shared-element";
 import Card from "../../components/Card";
 import FoodCategoryTile from "../../components/FoodCategoryTile";
@@ -53,29 +55,39 @@ const Home = (props: IHomeProps) => {
 	);
 
 	return (
-		<ScrollView style={styles.container}>
-			{isLoading && <Text>Loading...</Text>}
-			<HeaderSearchBar />
-			<FlatList
-				data={foodCategories}
-				renderItem={({ item }) => (
-					<FoodCategoryTile
-						item={item}
-						selected={item.name === selectedCategory}
-						onPress={handleFoodCategoryPress}
+		<SafeAreaView style={styles.safeAreaView} edges={["top"]}>
+			<ScrollView
+				style={styles.container}
+				refreshControl={
+					<RefreshControl
+						refreshing={isLoading}
+						onRefresh={refetch}
 					/>
-				)}
-				style={styles.foodCategoriesFlatList}
-				horizontal
-				showsHorizontalScrollIndicator={false}
-			/>
-			{data?.businesses.map((business) => (
-				<SharedElement id={`${business.id}.card`}>
-					<Card business={business} key={business.id} />
-				</SharedElement>
-			))}
-			<StatusBar style="dark" />
-		</ScrollView>
+				}
+			>
+				<HeaderSearchBar />
+				<FlatList
+					data={foodCategories}
+					renderItem={({ item }) => (
+						<FoodCategoryTile
+							item={item}
+							selected={item.name === selectedCategory}
+							onPress={handleFoodCategoryPress}
+						/>
+					)}
+					style={styles.foodCategoriesFlatList}
+					horizontal
+					showsHorizontalScrollIndicator={false}
+				/>
+				{isLoading && <ActivityIndicator />}
+				{data?.businesses.map((business) => (
+					<SharedElement id={`${business.id}.card`}>
+						<Card business={business} key={business.id} />
+					</SharedElement>
+				))}
+				<StatusBar style="dark" />
+			</ScrollView>
+		</SafeAreaView>
 	);
 };
 

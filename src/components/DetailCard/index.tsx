@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
+	ImageBackground,
 	NativeScrollEvent,
 	NativeSyntheticEvent,
 	Pressable,
@@ -15,6 +16,7 @@ import Reanimated, {
 	useSharedValue,
 } from "react-native-reanimated";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { SharedElement } from "react-navigation-shared-element";
 import menuItems from "../../data/menuItems";
 import { HomeTabStackType } from "../../navigation/HomeTab";
 import { colors } from "../../themes";
@@ -33,11 +35,13 @@ const DetailCard = (props: IDetailCardProps) => {
 
 	const navigation = useNavigation<HomeTabStackType>();
 	const imageScale = useSharedValue(1);
+	const imagePos = useSharedValue(0);
 
 	const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
 		const { y } = event.nativeEvent.contentOffset;
 		if (y <= 0) {
-			imageScale.value = 1 + Math.abs(y) / 150;
+			imageScale.value = 1 + Math.abs(y) / 250;
+			imagePos.value = y / 2;
 		}
 	};
 
@@ -50,11 +54,12 @@ const DetailCard = (props: IDetailCardProps) => {
 			{
 				scale: imageScale.value,
 			},
-			{
-				translateY: imageScale.value * -15,
-			},
 		],
+		top: imagePos.value,
 	}));
+
+	const AnimatedImageBackground =
+		Reanimated.createAnimatedComponent(ImageBackground);
 
 	return (
 		<View style={styles.detailCard}>
@@ -72,12 +77,14 @@ const DetailCard = (props: IDetailCardProps) => {
 				scrollEventThrottle={16}
 			>
 				{business.image_url !== "" && (
-					<View style={[styles.imageOverlay]}>
-						<Reanimated.Image
+					<SharedElement id={`${business.id}.image`}>
+						<AnimatedImageBackground
 							style={[styles.image, animatedStyleImage]}
 							source={{ uri: business.image_url }}
-						/>
-					</View>
+						>
+							<View style={[styles.imageOverlay]} />
+						</AnimatedImageBackground>
+					</SharedElement>
 				)}
 				<View
 					style={[

@@ -26,15 +26,12 @@ export const styles = StyleSheet.create({
 	image: {
 		height: 250,
 		resizeMode: "cover",
-		opacity: 0.8,
 		zIndex: -1,
-		backgroundColor: "black",
+		marginTop: -15,
 	},
 	imageOverlay: {
-		position: "absolute",
-		height: 250,
-		backgroundColor: colors.black,
-		zIndex: -1,
+		flex: 1,
+		backgroundColor: colors.components.imageOverlay,
 	},
 	title: {
 		fontSize: 30,

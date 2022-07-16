@@ -18,4 +18,7 @@ export const colors = {
 		800: "#343a40",
 		900: "#212529",
 	},
+	components: {
+		imageOverlay: "rgba(0,0,0,0.2)",
+	},
 };

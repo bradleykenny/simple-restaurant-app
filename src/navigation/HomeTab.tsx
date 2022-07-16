@@ -1,6 +1,5 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { Platform } from "react-native";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 import DetailScreen from "../screens/DetailScreen";
 import HomeScreen from "../screens/HomeScreen";
@@ -27,20 +26,20 @@ const HomeTab = (props: IProps) => {
 					cardStyle: { opacity: progress },
 				}),
 				presentation: "modal",
+				headerShown: false,
 			}}
 			detachInactiveScreens={false}
 		>
 			<Stack.Screen
 				name="HomeScreen"
 				component={HomeScreen}
-				options={{ title: "Home" }}
+				options={{ title: "Home", headerShown: false }}
 			/>
 			<Stack.Screen
 				name="DetailScreen"
 				component={DetailScreen}
 				options={{
-					headerShown: false,
-					gestureEnabled: false
+					gestureEnabled: false,
 				}}
 				sharedElements={(route, otherRoute, showing) => {
 					const { business } = route.params;

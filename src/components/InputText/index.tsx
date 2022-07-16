@@ -86,7 +86,7 @@ const InputText = (props: IInputTextProps) => {
 				<TextInput
 					style={[
 						styles.textInput,
-						{ paddingVertical: isFocus ? 11 : 12 },
+						{ paddingVertical: isFocus ? 14 : 15 },
 					]}
 					multiline={multiline}
 					onBlur={handleBlur}

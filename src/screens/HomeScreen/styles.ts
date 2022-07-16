@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
+	safeAreaView: {
+		flex: 1,
+		backgroundColor: colors.white,
+	},
 	container: {
 		paddingHorizontal: 15,
 		backgroundColor: colors.white,
