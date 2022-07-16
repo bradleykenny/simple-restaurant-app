@@ -1,6 +1,13 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../themes";
 
 export const styles = StyleSheet.create({
+	card: {
+		marginVertical: 5,
+		borderRadius: 10,
+		overflow: "hidden",
+		backgroundColor: "#fff",
+	},
 	cardHeaderContainer: {
 		flex: 1,
 		marginBottom: 10,
@@ -9,6 +16,10 @@ export const styles = StyleSheet.create({
 	titlesContainer: {
 		marginTop: 4,
 	},
+	textRow: {
+		flex: 1,
+		flexDirection: "row",
+	},
 	title: {
 		fontSize: 18,
 		fontWeight: "bold",
@@ -16,32 +27,22 @@ export const styles = StyleSheet.create({
 		marginBottom: 4,
 	},
 	subtitle: {
-		fontSize: 14,
+		fontSize: 16,
 		color: "#787878",
-		marginBottom: 5,
+		paddingVertical: 2,
 	},
-	card: {
-		marginVertical: 10,
-		borderRadius: 10,
-		overflow: "hidden",
-		backgroundColor: "#fff",
-		marginBottom: 15,
+	distance: {
+		textAlign: "right",
+		fontSize: 16,
+		color: "#787878",
+		paddingVertical: 2,
 	},
 	image: {
 		marginRight: 10,
 		width: "100%",
 		height: 130,
-		borderRadius: 12,
-	},
-	textInput: {
-		width: "100%",
-		borderRadius: 5,
-		borderWidth: 1,
-		borderColor: "#cdcdcd",
-		backgroundColor: "#efefef",
-		paddingVertical: 10,
-		paddingHorizontal: 15,
-		marginVertical: 10,
+		borderRadius: 10,
+		overflow: "hidden",
 	},
 	infoTextGroup: {
 		paddingHorizontal: 15,
@@ -66,7 +67,10 @@ export const styles = StyleSheet.create({
 		marginBottom: 15,
 	},
 	ratingStars: {
-		alignItems: "flex-start",
-		paddingVertical: 5,
+		alignItems: "flex-end",
+	},
+	imageOverlay: {
+		flex: 1,
+		backgroundColor: colors.transparent,
 	},
 });

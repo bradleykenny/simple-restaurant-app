@@ -16,11 +16,6 @@ const foodCategories: FoodCategory[] = [
 		colour: "#DC143C",
 	},
 	{
-		name: "Noodles",
-		icon: "noodles",
-		colour: "#6D3F5B",
-	},
-	{
 		name: "Pasta",
 		icon: "pasta",
 		colour: "#84C3BE",
@@ -29,6 +24,11 @@ const foodCategories: FoodCategory[] = [
 		name: "Vege",
 		icon: "carrot",
 		colour: "#F44611",
+	},
+	{
+		name: "Noodles",
+		icon: "noodles",
+		colour: "#6D3F5B",
 	},
 	{
 		name: "Cheese",

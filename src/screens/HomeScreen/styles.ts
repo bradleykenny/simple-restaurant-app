@@ -23,6 +23,6 @@ export const styles = StyleSheet.create({
 	foodCategoriesFlatList: {
 		paddingHorizontal: 15,
 		marginHorizontal: -15,
-		marginBottom: 5,
+		marginBottom: 10,
 	},
 });

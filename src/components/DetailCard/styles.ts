@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
 		height: 250,
 		resizeMode: "cover",
 		zIndex: -1,
-		marginTop: -15,
+		// marginTop: -15,
 	},
 	imageOverlay: {
 		flex: 1,

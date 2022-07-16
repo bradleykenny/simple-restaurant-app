@@ -1,9 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Animated, Image, Pressable, Text, View } from "react-native";
+import { Animated, ImageBackground, Pressable, Text, View } from "react-native";
 import { Rating } from "react-native-ratings";
 import { SharedElement } from "react-navigation-shared-element";
-import translations from "../../constants/translations";
 import { HomeTabStackType } from "../../navigation/HomeTab";
 import { Business } from "../../types/Business";
 import Button from "../Button";
@@ -76,29 +75,43 @@ const Card = (props: ICardProps) => {
 				<View style={styles.cardHeaderContainer}>
 					{business.image_url !== "" && (
 						<SharedElement id={`${business.id}.image`}>
-							<Image
+							<ImageBackground
 								style={styles.image}
 								source={{ uri: business.image_url }}
-							/>
+							>
+								<View style={[styles.imageOverlay]} />
+							</ImageBackground>
 						</SharedElement>
 					)}
 				</View>
 				<View style={styles.infoTextGroup}>
-					<Text style={styles.title}>{business.name}</Text>
-					<Text style={styles.subtitle}>
-						{business.location.city}, {business.location.state}
-					</Text>
-					<Rating
-						type="star"
-						startingValue={business.rating}
-						imageSize={20}
-						readonly
-						style={styles.ratingStars}
-					/>
-					<Text>
-						{translations.homeTab.card.labels.price}
-						{business.price}
-					</Text>
+					<View style={styles.textRow}>
+						<View style={{ flex: 1 }}>
+							<Text style={styles.title}>{business.name}</Text>
+						</View>
+						<View style={{ flex: 1 }}>
+							<Rating
+								type="star"
+								startingValue={business.rating}
+								imageSize={18}
+								readonly
+								style={styles.ratingStars}
+							/>
+						</View>
+					</View>
+					<View style={styles.textRow}>
+						<View style={{ flex: 1 }}>
+							<Text style={styles.subtitle}>
+								{business.location.city},{" "}
+								{business.location.state}
+							</Text>
+						</View>
+						<View style={{ flex: 1 }}>
+							<Text style={styles.distance}>
+								{business.distance.toFixed(1)} km
+							</Text>
+						</View>
+					</View>
 					<View style={{ marginTop: 10, marginBottom: -15 }}>
 						{transactionFields()}
 					</View>
