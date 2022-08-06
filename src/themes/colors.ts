@@ -3,7 +3,6 @@ export const colors = {
 		100: "#177DFF",
 		200: "#0061de",
 	},
-	inactive: "#CDCDCD",
 	black: "#000000",
 	white: "#FFFFFF",
 	transparent: "transparent",
@@ -20,5 +19,8 @@ export const colors = {
 	},
 	components: {
 		imageOverlay: "rgba(0,0,0,0.2)",
+		textInput: {
+			inactive: "#adb5bd",
+		},
 	},
 };

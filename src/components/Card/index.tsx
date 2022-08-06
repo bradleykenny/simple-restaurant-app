@@ -79,7 +79,7 @@ const Card = (props: ICardProps) => {
 								style={styles.image}
 								source={{ uri: business.image_url }}
 							>
-								<View style={[styles.imageOverlay]} />
+								<View style={styles.imageOverlay} />
 							</ImageBackground>
 						</SharedElement>
 					)}

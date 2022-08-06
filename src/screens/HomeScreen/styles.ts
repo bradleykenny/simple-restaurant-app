@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
 		zIndex: 1,
 		marginHorizontal: -15,
 		paddingHorizontal: 15,
-		paddingVertical: 5,
+		paddingVertical: 10,
 		paddingTop: 15,
 	},
 	scrollInset: {
@@ -23,6 +23,11 @@ export const styles = StyleSheet.create({
 	foodCategoriesFlatList: {
 		paddingHorizontal: 15,
 		marginHorizontal: -15,
-		marginBottom: 10,
+		marginBottom: 15,
+	},
+	homeHeading: {
+		marginTop: 15,
+		fontSize: 34,
+		fontWeight: "500",
 	},
 });

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useRef } from "react";
 import {
 	ImageBackground,
 	NativeScrollEvent,
@@ -11,7 +11,9 @@ import {
 	View,
 } from "react-native";
 import { Rating } from "react-native-ratings";
-import Reanimated, {
+import {
+	default as Animated,
+	default as Reanimated,
 	useAnimatedStyle,
 	useSharedValue,
 } from "react-native-reanimated";
@@ -37,11 +39,16 @@ const DetailCard = (props: IDetailCardProps) => {
 	const imageScale = useSharedValue(1);
 	const imagePos = useSharedValue(0);
 
+	const scrollY = useRef(new Animated.Value<number>(0)).current;
+
 	const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
 		const { y } = event.nativeEvent.contentOffset;
 		if (y <= 0) {
-			imageScale.value = 1 + Math.abs(y) / 250;
-			imagePos.value = y / 2;
+			scrollY.setValue(y);
+
+			console.log(scrollY);
+			// imageScale.value = 1 + Math.abs(y) / 250;
+			// imagePos.value = y / 2;
 		}
 	};
 
@@ -78,18 +85,17 @@ const DetailCard = (props: IDetailCardProps) => {
 			>
 				{business.image_url !== "" && (
 					<SharedElement id={`${business.id}.image`}>
-						<AnimatedImageBackground
-							style={[styles.image, animatedStyleImage]}
+						<ImageBackground
+							style={[styles.image]} // animatedStyleImage]}
 							source={{ uri: business.image_url }}
 						>
-							<View style={[styles.imageOverlay]} />
-						</AnimatedImageBackground>
+							<View style={styles.imageOverlay} />
+						</ImageBackground>
 					</SharedElement>
 				)}
 				<View
 					style={[
 						styles.content,
-						commonStyles.boxShadow,
 						{ shadowOffset: { width: 0, height: -15 } },
 					]}
 				>

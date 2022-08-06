@@ -6,6 +6,7 @@ import {
 	NativeSyntheticEvent,
 	RefreshControl,
 	ScrollView,
+	Text,
 	TextInputSubmitEditingEventData,
 	View,
 } from "react-native";
@@ -65,6 +66,7 @@ const Home = (props: IHomeProps) => {
 					/>
 				}
 			>
+				<Text style={styles.homeHeading}>Welcome back</Text>
 				<HeaderSearchBar />
 				<FlatList
 					data={foodCategories}
@@ -81,7 +83,7 @@ const Home = (props: IHomeProps) => {
 				/>
 				{isLoading && <ActivityIndicator />}
 				{data?.businesses.map((business) => (
-					<SharedElement id={`${business.id}.card`}>
+					<SharedElement id={`${business.id}.card`} key={business.id}>
 						<Card business={business} key={business.id} />
 					</SharedElement>
 				))}

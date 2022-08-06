@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 	container: {
-		height: 80,
-		width: 80,
+		height: 70,
+		width: 70,
 		marginRight: 15,
 		borderRadius: 12,
 		justifyContent: "center",
@@ -19,10 +19,10 @@ export const styles = StyleSheet.create({
 	},
 	backdrop: {
 		position: "absolute",
-		left: 10,
+		left: 5,
 		borderRadius: 30,
-		height: 40,
+		height: 35,
 		width: 60,
-		transform: [{ rotate: "30deg" }],
+		transform: [{ rotate: "35deg" }],
 	},
 });

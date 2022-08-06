@@ -6,8 +6,8 @@ export const styles = StyleSheet.create({
 		width: "100%",
 		borderRadius: 8,
 		borderWidth: 1,
-		borderColor: colors.gray[300],
-		backgroundColor: colors.gray[200],
+		borderColor: colors.gray[900],
+		backgroundColor: colors.gray[100],
 		marginVertical: 5,
 	},
 	textInput: {

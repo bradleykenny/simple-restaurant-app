@@ -13,8 +13,6 @@ export const styles = StyleSheet.create({
 		zIndex: 10,
 		paddingHorizontal: 15,
 		paddingTop: 25,
-		borderTopLeftRadius: 15,
-		borderTopRightRadius: 15,
 		marginTop: -30,
 	},
 	scrollViewContainer: {
