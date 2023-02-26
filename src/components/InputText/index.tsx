@@ -58,7 +58,7 @@ const InputText = (props: IInputTextProps) => {
 	const borderColorInterpolation = borderColorAnim.interpolate({
 		inputRange: [0, 1],
 		outputRange: [
-			colors.components.textInput.inactive,
+			colors.gray[200],
 			colors.primary[100],
 		],
 	});

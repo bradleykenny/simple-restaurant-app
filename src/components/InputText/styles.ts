@@ -4,10 +4,11 @@ import { colors } from "../../themes";
 export const styles = StyleSheet.create({
 	mainView: {
 		width: "100%",
-		borderRadius: 8,
+		borderRadius: 15,
+		paddingHorizontal: 5,
 		borderWidth: 1,
-		borderColor: colors.gray[900],
-		backgroundColor: colors.gray[100],
+		borderColor: colors.gray[200],
+		backgroundColor: colors.gray[200],
 		marginVertical: 5,
 	},
 	textInput: {

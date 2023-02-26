@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
 		position: "absolute",
 		left: 5,
 		borderRadius: 30,
-		height: 35,
+		height: 50,
 		width: 60,
 		transform: [{ rotate: "35deg" }],
 	},

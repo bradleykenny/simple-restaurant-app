@@ -11,6 +11,7 @@ import {
 	View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { SharedElement } from "react-navigation-shared-element";
 import Card from "../../components/Card";
 import FoodCategoryTile from "../../components/FoodCategoryTile";
@@ -66,7 +67,15 @@ const Home = (props: IHomeProps) => {
 					/>
 				}
 			>
-				<Text style={styles.homeHeading}>Welcome back</Text>
+				<Text style={styles.homeHeading}>
+					<Icon
+						name={"food"}
+						size={48}
+						style={undefined}
+						color={"rgb(54,56,151)"}
+					/>
+					rstrnt
+				</Text>
 				<HeaderSearchBar />
 				<FlatList
 					data={foodCategories}
@@ -82,7 +91,7 @@ const Home = (props: IHomeProps) => {
 					showsHorizontalScrollIndicator={false}
 				/>
 				{isLoading && <ActivityIndicator />}
-				{data?.businesses.map((business) => (
+				{data?.businesses?.map((business) => (
 					<SharedElement id={`${business.id}.card`} key={business.id}>
 						<Card business={business} key={business.id} />
 					</SharedElement>

@@ -8,32 +8,32 @@ const foodCategories: FoodCategory[] = [
 	{
 		name: "Burgers",
 		icon: "hamburger",
-		colour: "#13AE4B",
+		colour: "#4DAAF9",
 	},
 	{
 		name: "Pizza",
 		icon: "pizza",
-		colour: "#DC143C",
+		colour: "#E24E6E",
 	},
 	{
 		name: "Pasta",
 		icon: "pasta",
-		colour: "#84C3BE",
+		colour: "#65C77C",
 	},
 	{
 		name: "Vege",
 		icon: "carrot",
-		colour: "#F44611",
+		colour: "#F0845C",
 	},
 	{
 		name: "Noodles",
 		icon: "noodles",
-		colour: "#6D3F5B",
+		colour: "#6A48E2",
 	},
 	{
 		name: "Cheese",
 		icon: "cheese",
-		colour: "#CDA434",
+		colour: "#F6C452",
 	},
 ];
 

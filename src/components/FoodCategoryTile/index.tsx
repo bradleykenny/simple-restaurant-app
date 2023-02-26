@@ -15,26 +15,32 @@ const FoodCategoryTile = (props: IFoodCategoryTileProps) => {
 	const { item, onPress, selected } = props;
 	const { name, colour, icon } = item;
 
-	const selectStyles = selected
-		? {
-				backgroundColor: `${colour}1A`,
-				borderColor: colour,
-				// borderWidth: 2,
-		  }
-		: {
-				backgroundColor: colors.white,
-		  };
+	const selectStyles = {
+		backgroundColor: colors.white,
+	};
+
+	const finalColour = selected ? colour : "gray";
 
 	return (
 		<Pressable
 			style={[styles.container, selectStyles]}
 			onPress={() => onPress?.(name)}
 		>
-			<Icon name={icon} size={48} style={styles.icon} color={colour} />
-			<Text style={[styles.text, { color: colour }]}>{name}</Text>
-			<View
-				style={[styles.backdrop, { backgroundColor: `${colour}24` }]}
+			<Icon
+				name={icon}
+				size={48}
+				style={styles.icon}
+				color={finalColour}
 			/>
+			<Text style={[styles.text, { color: finalColour }]}>{name}</Text>
+			{selected && (
+				<View
+					style={[
+						styles.backdrop,
+						{ backgroundColor: `${finalColour}24` },
+					]}
+				/>
+			)}
 		</Pressable>
 	);
 };

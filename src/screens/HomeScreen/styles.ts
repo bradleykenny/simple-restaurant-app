@@ -22,11 +22,13 @@ export const styles = StyleSheet.create({
 	},
 	foodCategoriesFlatList: {
 		paddingHorizontal: 15,
+		paddingRight: 50,
 		marginHorizontal: -15,
 		marginBottom: 15,
 	},
 	homeHeading: {
 		marginTop: 15,
+		marginLeft: 5,
 		fontSize: 34,
 		fontWeight: "500",
 	},
