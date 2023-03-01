@@ -32,6 +32,14 @@ const FoodCategoryTile = (props: IFoodCategoryTileProps) => {
 				style={styles.icon}
 				color={finalColour}
 			/>
+			{selected && (
+				<Icon
+					name={icon}
+					size={48}
+					style={[styles.icon, styles.shadowIcon]}
+					color={finalColour}
+				/>
+			)}
 			<Text style={[styles.text, { color: finalColour }]}>{name}</Text>
 			{selected && (
 				<View

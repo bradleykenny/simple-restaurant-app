@@ -1,4 +1,3 @@
-import { YELP_API_KEY } from "@env";
 import { useQuery } from "react-query";
 import { Business } from "../types/Business";
 
@@ -10,7 +9,7 @@ const useFeedData = (location: string) => {
 			`https://api.yelp.com/v3/businesses/search?location=${location}&categories=${CATEGORIES}`,
 			{
 				headers: {
-					Authorization: `Bearer ${YELP_API_KEY}`,
+					Authorization: `Bearer ${process.env.YELP_API_KEY}`,
 				},
 			}
 		).then((res) => res.json())

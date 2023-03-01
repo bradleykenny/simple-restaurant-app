@@ -47,8 +47,6 @@ const HomeTab = (props: IProps) => {
 						{
 							id: `${business.id}.image`,
 							animation: "move",
-							resize: "clip",
-							debug: true,
 						},
 						{
 							id: `${business.id}.title`,

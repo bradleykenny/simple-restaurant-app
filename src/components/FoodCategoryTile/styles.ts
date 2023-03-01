@@ -12,6 +12,12 @@ export const styles = StyleSheet.create({
 		alignSelf: "center",
 		marginBottom: 2,
 	},
+	shadowIcon: {
+		position: "absolute",
+		opacity: 0.3,
+		top: 5,
+		left: 13,
+	},
 	text: {
 		textAlign: "center",
 		fontWeight: "bold",
